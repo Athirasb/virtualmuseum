@@ -1,0 +1,5 @@
+2024-08-05 10:34:08,171 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-08-05 10:35:24,452 [Worker-1: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.JavaWizard:VirtualMuseum:0.0.1-SNAPSHOT @ D:\Final\VirtualMuseum\pom.xml.
+2024-08-05 10:35:31,161 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-08-05 10:35:31,195 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 213 resources from src\main\resources to target\classes
+2024-08-05 10:36:10,991 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Final\VirtualMuseum\src\test\resources

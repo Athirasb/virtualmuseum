@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<style>
+		.navbar-nav .dropdown-menu {
+		    z-index: 9999; /* Ensure dropdown is on top */
+		    position: absolute; /* Ensure dropdown positioning */
+		}
+		#carousel-example-generic {
+		    position: relative; /* Ensure the carousel is positioned correctly */
+		}
+
+		.carousel-inner video {
+		    width: 100%; /* Ensure video takes full width */
+		    height: auto; /* Maintain aspect ratio */
+		}
+		/* Style for the avatar */
+		.navbar-avatar {
+		    height: 30px;
+		    width: 30px;
+		    border-radius: 50%;
+		    margin-right: 5px; /* Space between avatar and user name */
+		    vertical-align: middle; /* Vertically align the image */
+		}
+
+		</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArteNova</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </head>
+<body>
+
+<section id="header" class="clearfix cd-secondary-nav">
+    <nav class="navbar navbar-default">
+        <div class="container clearfix">
+            
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header clearfix page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand"><i class="fa fa-pencil"></i> Arte <span>Nova</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+         <!-- Include Font Awesome CDN in the <head> section of your HTML if not already included -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="collapse navbar-collapse clearfix" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a class="tag_menu_1" th:href="@{/index}">HOME</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/aboutus}">ABOUT US</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/exhibitions}">EVENTS</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/gallery}">GALLERY</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/contact}">CONTACT US</a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle tag_menu" data-toggle="dropdown">
+                <i class="fas fa-user"></i> <b class="caret"></b>
+            </a>
+           
+            <ul class="dropdown-menu">
+            
+                <li><a th:href="@{/admin_login}">Admin</a></li>
+
+              
+            </ul>
+        </li>
+    </ul> 
+</div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</section>
+
+
+<section id="center">
+    <div class="clearfix">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <video autoplay loop muted>
+                        <source src="img/background.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-text hidden-xs">
+        <div class="col-md-12">
+            <div class="col-sm-4">
+                <div class="center_slide">
+                    <h1>Welcome to Voices Unheard!</h1>
+                    <p>where powerful images converge to shed light on pressing social issues. Through compelling visuals, we aim to ignite awareness and foster dialogue, urging for meaningful change in our communities and beyond</p>
+                    <h4><a th:href="@{/login}">Events</a></h4>
+					<br>
+					<br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="collection_detail">
+    <div class="container">
+        <div class="row">
+            <div class="collection_detail clearfix">
+                <h2>Introduction</h2>
+                <p style="text-align: justify;">Welcome to [Gallery Name], where we passionately curate compelling images that shed light on the most pressing social issues of our time. Through powerful photography and art, we aim to ignite critical thinking, foster empathy, and inspire proactive engagement towards meaningful change. Our platform not only highlights the complexities of these issues but also strives to provide actionable solutions, connecting viewers with resources, campaigns, and organizations dedicated to creating a better world. Join us in exploring and advocating for social justice, one image at a time.</p>
+            </div>
+            <div class="collection_detail_1 collection_detail_home clearfix">
+                <div class="col-sm-4 space_left">
+                    <div class="collection_detail_1_left clearfix">
+                        <div class="grid clearfix">
+                            <figure class="effect-marley">
+                                <img src="img/thumbs/hands.jpg" alt="img12">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="collection_detail_1_right">
+                        <h2>How the website is useful to others?</h2>
+                        <p style="text-align: justify;">Every portrait sold at [Gallery Name] represents more than just art; it embodies our commitment to creating tangible change. We pledge that all profits from portrait sales go directly to supporting individuals and communities affected by the very social issues depicted in our gallery. By purchasing a portrait, you not only acquire a piece of impactful art but also contribute directly to alleviating hardship and promoting resilience. Together, we can turn art into action, making a meaningful difference in the lives of those who need it most.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="blog_post">
+ <div class="blog_post_main clearfix">
+   <div class="container">
+  <div class="row">
+   <div class="clinic_home text-center clearfix">
+    <h1>Our Goals</h1>
+	<p>We are planning to do some good work for society with the profit we achieve through our website. While it may not be enough to fully meet the needs of those in need, we are committed to making a beneficial impact, even if it's a small amount.</p>
+   </div>
+   <div class="blog_post clearfix">
+    <div class="col-sm-4">
+	 <div class="blog_post_inner">
+	   <div class="card-image"><img src="img/school.png" width="100%" height="300px"></div>
+	  
+	   <h4  style="color:red;">Transportation facility to Tribal students</h4>
+	   <p>We are planning to build an transportation facility to students who are living in tribal areas whoa re facing difficulty to reach .</p>
+	 </div>
+	</div>
+	<div class="col-sm-4">
+	 <div class="blog_post_inner">
+	   <div class="card-image"><img src="img/study.png" width="100%" height="300px"></div>
+	   <h4 style="color:red;">Providing study materials to students</h4>
+	   <p>We are planning to provide study materials such as books,pen,bag & uniform to students who are living in streets and colonies.</p>
+	 </div>
+	</div>
+	<div class="col-sm-4">
+	 <div class="blog_post_inner">
+	   <div class="card-image"><img src="img/disabled.png" width="100%" height="300px"></div>
+	   <h4  style="color:red;">Distribution of wheel chair to disabled people</h4>
+	   <p>We are planning to distribute wheel chair and crutches to disabled people who are facing financial issues.</p>
+	 </div>
+	</div>
+   </div>
+   <div class="services_home_2 text-center clearfix">
+     <!-- <h5><a href="#">View Our Blogs</a></h5> -->
+   </div>
+  </div>
+ </div>
+ </div>
+</section>
+
+<section id="team_home">
+	<div class="container">
+	 <div class="row">
+	  <div class="about_home text-center clearfix">
+	   <h1 class="heading_tag">Our Staffs</h1>
+	   <p class="para_2"> 
+		   Meet our skilled team who crafted the website's frontend and backend with precision. They blend creativity and technical expertise to deliver a seamless digital experience tailored to your needs</p>
+	  </div>
+	  
+   
+	  <div class="containerimage">
+	   <div class="box">
+		 <div class="imgBx">
+		   <img src="img/staffs/mahima.png">
+		 </div>
+		 <div class="content">
+		   <div>
+			 <h2>Mahima Manikandan</h2>
+			 <p>
+			 </p>
+		   </div>
+		 </div>
+	   </div>
+	   <div class="box">
+		 <div class="imgBx">
+		   <img src="img/staffs/anagha.jpeg">
+		 </div>
+		 <div class="content">
+		   <div>
+			 <h2>Anagha Suresh</h2>
+			 <p>
+			 </p>
+			  </div>
+		 </div>
+	   </div>
+	   <div class="box">
+		 <div class="imgBx">
+		   <img src="img/staffs/surya.png">
+		 </div>
+		 <div class="content">
+		   <div>
+			 <h2>Soorya</h2>
+			 <p>
+			 </p>
+		   </div>
+		 </div>
+	   </div>
+	   <div class="box">
+		 <div class="imgBx">
+		   <img src="img/staffs/athira.png">
+		 </div>
+		 <div class="content">
+		   <div>
+			 <h2>Athira</h2>
+			 <p>
+			 </p>
+				</div>
+		 </div>
+	   </div>
+	 </div>
+	 </div>
+	 </div>
+	 </section>
+
+
+
+<section id="about_home" class="clearfix">
+	<div class="about_home_main clearfix">
+	  <div class="container">
+	 <div class="row">
+	  <div class="about_home clearfix">
+	   <div class="col-sm-6">
+		<div class="about_home_1 clearfix">
+		 <div class="col-sm-3 space_all">
+		  <div class="about_home_1_left">
+			<h2><i class="fa fa-skyatlas"></i></h2>
+		  </div>
+		 </div>
+		  <div class="col-sm-9">
+			<div class="about_home_1_right">
+			   <h4>VIRTUAL EXPERIENCE</h4>
+			   <p>Our virtual museum offers an immersive and engaging experience, allowing you to explore art, history, and culture from the comfort of your home.</p>
+			</div>
+		  </div>
+		</div>
+		<div class="about_home_1 clearfix">
+		 <div class="col-sm-3 space_all">
+		  <div class="about_home_1_left">
+			<h2><i class="fa fa-television"></i></h2>
+		  </div>
+		 </div>
+		  <div class="col-sm-9">
+			<div class="about_home_1_right">
+			 <h4> LIVE CHAT SUPPORT</h4>
+			 <p>Our virtual museum is dedicated to providing exceptional visitor support through our Live Chat feature. </p>
+			</div>
+		  </div>
+		</div>
+	   </div>
+	   <div class="col-sm-6">
+		<div class="about_home_1 clearfix">
+		 <div class="col-sm-3 space_all">
+		  <div class="about_home_1_left">
+			<h2><i class="fa fa-user-plus"></i></h2>
+		  </div>
+		 </div>
+		  <div class="col-sm-9">
+			<div class="about_home_1_right">
+			   <h4>SOCIAL IMPACT</h4>
+			 <p>Our virtual museum is committed to making a positive social impact by fostering inclusivity, accessibility, and community engagement.</p>
+			 
+			</div>
+		  </div>
+		</div>
+		<div class="about_home_1 clearfix">
+		 <div class="col-sm-3 space_all">
+		  <div class="about_home_1_left">
+			<h2><i class="fa fa-suitcase "></i></h2>
+		  </div>
+		 </div>
+		  <div class="col-sm-9">
+			<div class="about_home_1_right">
+			   <h4>FEEDBACK AND SUGGESTIONS</h4>
+			   <p>We value your feedback and suggestions at our virtual museum. Your input helps us improve and enhance your experience.</p>
+			</div>
+		  </div>
+		</div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+	</div>
+   </section>
+
+ <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer clearfix">
+            <div class="footer_1 clearfix">
+              <div class="col-sm-3">
+                <div class="footer_1_left">
+                  <h3>ArteNova</h3>
+                  <p>695301 Kazhakkoottam<br>Thiruvananthapuram, Kerala<br>India</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer_3 clearfix">
+                  <p>Our museum is dedicated to preserving and showcasing art and history from around the world. 
+                    &copy; 2024 ArteNova. All rights reserved.</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="footer_1_right pull-right">
+                  <h1>AeN <span>ArteNova</span></h1>
+                </div>
+              </div>
+            </div>
+           
+              <div class="col-sm-5">
+                <div class="footer_2_right pull-right">
+                  <ul class="social-network social-circle">
+                  
+                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<div id="toTop" class="btn btn-info" style="display: block; background:#e02626; border-color:#e02626;"><span class="fa fa-chevron-up"></span></div>
+
+<script>
+$(document).ready(function(){
+  $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+	$(window).scroll(function () {
+		if ($(this).scrollTop() != 0) {
+			$('#toTop').fadeIn();
+		} else {
+			$('#toTop').fadeOut();
+		}
+	}); 
+$('#toTop').click(function(){
+	$("html, body").animate({ scrollTop: 0 }, 600);
+	return false;
+});
+});
+
+</script>
+
+<script>
+	$(document).ready(function() {              
+    $('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){    
+        var $this = $(this),
+        c = $this.data('count');    
+        if (!c) c = 0;
+        c++;
+        $this.data('count',c);
+        $('#'+this.id+'-bs3').html(c);
+    });      
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });                                        
+}); 
+
+	</script>
+	
+<script src="js/simple-lightbox.js"></script>
+
+<script>
+	$(function(){
+		var $gallery = $('.gallery a').simpleLightbox();
+
+		$gallery.on('show.simplelightbox', function(){
+			console.log('Requested for showing');
+		})
+		.on('shown.simplelightbox', function(){
+			console.log('Shown');
+		})
+		.on('close.simplelightbox', function(){
+			console.log('Requested for closing');
+		})
+		.on('closed.simplelightbox', function(){
+			console.log('Closed');
+		})
+		.on('change.simplelightbox', function(){
+			console.log('Requested for change');
+		})
+		.on('next.simplelightbox', function(){
+			console.log('Requested for next');
+		})
+		.on('prev.simplelightbox', function(){
+			console.log('Requested for prev');
+		})
+		.on('nextImageLoaded.simplelightbox', function(){
+			console.log('Next image loaded');
+		})
+		.on('prevImageLoaded.simplelightbox', function(){
+			console.log('Prev image loaded');
+		})
+		.on('changed.simplelightbox', function(){
+			console.log('Image changed');
+		})
+		.on('nextDone.simplelightbox', function(){
+			console.log('Image changed to next');
+		})
+		.on('prevDone.simplelightbox', function(){
+			console.log('Image changed to prev');
+		})
+		.on('error.simplelightbox', function(e){
+			console.log('No image found, go to the next/prev');
+			console.log(e);
+		});
+	});
+</script>
+
+<script>
+$(document).ready(function(){
+	/*****Fixed Menu******/
+	var secondaryNav = $('.cd-secondary-nav'),
+	   secondaryNavTopPosition = secondaryNav.offset().top;
+	   navbar_height = document.querySelector('.navbar').offsetHeight;
+	   
+		$(window).on('scroll', function(){
+		    if($(window).scrollTop() > secondaryNavTopPosition + navbar_height ) {
+				secondaryNav.addClass('is-fixed');	
+				document.body.style.paddingTop = navbar_height + 'px';
+				
+			} else {
+				secondaryNav.removeClass('is-fixed');
+				document.body.style.paddingTop = '0'
+			}
+		});	
+		
+});
+</script>
+
+
+</body>
+       
+</html>

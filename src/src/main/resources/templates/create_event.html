@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Create Event</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        background-color: #fdf6e3;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #991111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 220px;
+            height: calc(100% - 80px);
+            background-color: #991111;
+            color: white;
+            overflow-y: auto;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+
+        nav a, .logout, .go-back-button {
+            display: block;
+            color: white;
+            text-align: left;
+            padding: 14px 16px;
+            text-decoration: none; /* Removed underline */
+            background-color: #991111;
+            border-bottom: 1px solid #991111;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover, .logout:hover, .go-back-button:hover {
+            background-color: #f2f6fd;
+            color: #ff0c0c;
+                        text-decoration: none; /* Removed underline */
+            
+        }
+
+        /* Profile section in the sidebar */
+        .profile {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #991111;
+            border-bottom: 1px solid #991111;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .profile span {
+            color: white;
+            font-size: 14px;
+        }
+
+        .container {
+            margin-left: 240px;
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+        /* Form styling */
+        form {
+            max-width: 600px; /* Decreased form width */
+            margin: 0 auto; /* Center the form */
+            padding: 20px;
+            border: 2px solid darkred; /* Dark red border */
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .form-group label {
+            color: darkred; /* Optional: Make label text dark red */
+        }
+
+        .btn {
+            background-color: darkred;
+            color: white;
+        }
+
+        /* Styling for the go-back and logout buttons */
+        .go-back-button, .logout {
+            background: darkred;
+            color: white;
+}
+input[type="text"], 
+input[type="email"], 
+input[type="number"], 
+input[type="date"],
+input[type="time"],
+input[type="file"]
+ {
+    border-color: #b30000; /* Slightly darker red on focus */
+   
+}
+.form-group textarea {
+    border: 1px solid darkred;}
+        /* Specific button styling for consistency */
+        .btn-sidebar {
+            background-color: #991111;
+            border: none;
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+         .file-input-container label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: darkred; /* Custom background color */
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+
+        .btn-sidebar:hover {
+            background-color: #f2f6fd;
+            color: #ff0c0c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CREATE EVENT</h1>
+    </header>
+
+    <nav>
+        <br><br><br>
+       <a th:href="@{/admin}"
+           class=" btn-back-to-dashboard">Dashboard <i class="fas fa-tachometer-alt"></i></a>
+ <a th:href="@{/events/create}" class="">Event Creation <i class="fas fa-calendar-plus"></i></a>
+ <a th:href="@{/events/display}" class="">Ongoing Events <i class="fas fa-calendar-day"></i></a>
+<a th:href="@{/contact_data}" class="">Contact Details <i class="fas fa-envelope"></i></a>
+ <a th:href="@{/event_registration_details}" >Registered Events<i class="fas fa-calendar-alt"></i></a> 
+ <a th:href="@{/art-uploads}">Art Uploads <i class="fas fa-upload"></i></a>
+        <a  class="" th:href="@{/index}">Logout <i class="fas fa-sign-out-alt"></i></a>
+    </nav>
+
+    <div class="container">
+        <form th:action="@{/events/create}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="eventName">Event Name</label>
+                <input type="text" id="eventName" name="eventName" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="eventDescription">Event Description</label>
+                <textarea id="eventDescription" name="eventDescription" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="eventTime">Event Time</label>
+                <input type="time" id="eventTime" name="eventTime" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="eventDate">Event Date</label>
+                <input type="date" id="eventDate" name="eventDate" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="eventLink">Event Link</label>
+                <input type="text" id="eventLink" name="eventLink" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="image">Event Image</label>
+                <input type="file" id="image" name="image" class="form-control" />
+            </div>
+            <center><button type="submit" class="btn btn-primary">Submit</button></center>
+        </form>
+    </div>
+</body>
+</html>

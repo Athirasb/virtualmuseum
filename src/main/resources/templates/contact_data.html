@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Contact Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf6e3; /* Sandal color */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: darkred;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        main.container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid darkred; /* Red border for the form */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 280px; /* Leave space for sidebar */
+        }
+
+        /* Table Styles */
+        .table {
+            background-color: white; /* White table background */
+            border: 2px solid darkred; /* Red table border */
+            width: 100%;
+            text-align: center;
+        }
+
+        .table th, .table td {
+            background-color: white; /* Consistent white background */
+            border: 2px solid darkred; /* Red border for table cells */
+            padding: 10px;
+        }
+
+        .table th {
+            background-color: darkred; /* Deep red for header */
+            color: white;
+        }
+
+        /* Sidebar Styles */
+        nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 220px;
+            height: calc(100% - 80px);
+            background-color: darkred; /* Dark red background */
+            color: white;
+            padding-top: 20px;
+            z-index: 1000;
+            
+        }
+
+        nav a, .logout {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            text-decoration: none;
+            border-bottom: 1px solid darkred;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover, .logout:hover {
+            background-color: #f2f6fd; /* Light background on hover */
+            color: darkred; /* Dark red text on hover */
+            text-decoration: none;
+        }
+
+        /* Profile section in the sidebar */
+        .profile {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: darkred;
+            border-bottom: 1px solid #991111;
+        }
+
+        .profile h2 {
+            font-size: 18px;
+            color: white;
+        }
+
+      
+
+        .go-back-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .go-back-button img {
+            width: 80px;
+            height: 90px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Panel - Contact Data</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <nav>
+        <br><br><br>
+         <a th:href="@{/admin}" class="btn-sidebar">Dashboard <i class="fas fa-tachometer-alt"></i></a>
+        <a th:href="@{/events/create}" class="btn-sidebar">Create Event <i class="fas fa-calendar-plus"></i></a>
+        <a th:href="@{/events/display}" class="btn-sidebar">Ongoing Events <i class="fas fa-calendar-day"></i></a>
+      
+        <a th:href="@{/contact_data}" class="btn-sidebar">Contact Details <i class="fas fa-envelope"></i></a>
+        <a th:href="@{/event_registration_details}" >Registered Events<i class="fas fa-calendar-alt"></i></a> 
+        <a th:href="@{/art-uploads}" class="btn-sidebar">Art Uploads <i class="fas fa-upload"></i></a>
+        <a th:href="@{/index}" class="logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <div th:if="${contacts != null and !#lists.isEmpty(contacts)}">
+          
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="contact : ${contacts}">
+                        <td th:text="${contact.id}"></td>
+                        <td th:text="${contact.name}"></td>
+                        <td th:text="${contact.email}"></td>
+                        <td th:text="${contact.phone}"></td>
+                        <td th:text="${contact.message}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${contacts == null or #lists.isEmpty(contacts)}">
+            <p>No contact information available.</p>
+        </div>
+    </main>
+
+   
+</body>
+</html>

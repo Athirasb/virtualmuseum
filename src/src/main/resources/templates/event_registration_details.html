@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Registration Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf6e3; /* Sandal color */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: darkred;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+           /* Margin to fit with the sidebar */
+        }
+
+        main.container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid darkred; /* Red border for the form */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       margin-left: 280px; /* Margin for sidebar */
+        }
+
+        /* Table Styles */
+        .table {
+            margin-top: 20px;
+            background-color: white; /* White table background */
+            border: 2px solid darkred; /* Red border for the table */
+        }
+
+        .table th {
+            background-color: darkred; /* Deep red for header */
+            color: white; /* White text for table headers */
+        }
+
+       .table td{
+       border:1px solid darkred;}
+
+        /* Button Styles */
+        .btn-back-to-dashboard {
+            background-color: darkred; /* Dark red background for the Back button */
+            color: white; /* White text color */
+            font-size: 1rem; /* Standard font size */
+            padding: 10px 20px; /* Padding for better click area */
+            border-radius: 6px;
+            text-decoration: none; /* Remove underline from link */
+            border: 2px solid darkred; /* Dark red border around the button */
+            display: inline-block; /* Align with other inline elements */
+            text-align: center; /* Center text inside the button */
+        }
+
+        .btn-back-to-dashboard:hover {
+            background-color: #b22222; /* Darker red on hover */
+            color: white;
+            border-color: #b22222;
+        }
+
+        /* Sidebar Styles */
+        nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 220px;
+            height: calc(100% - 80px);
+            background-color: darkred; /* Dark red background */
+            color: white;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+
+        nav a, .logout {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            text-decoration: none;
+            border-bottom: 1px solid darkred;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover, .logout:hover {
+            background-color: #f2f6fd; /* Light background on hover */
+            color: darkred; /* Dark red text on hover */
+            text-decoration: none;
+        }
+
+        /* Profile section in the sidebar */
+        .profile {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: darkred;
+            border-bottom: 1px solid #991111;
+        }
+
+        .profile h2 {
+            font-size: 18px;
+            color: white;
+        }
+
+        /* Button container alignment */
+        .button-container {
+            margin-top: 20px;
+            text-align: left; /* Align button to the left */
+        }
+
+        h2 {
+            color: darkred; /* Dark red color for the heading */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav>
+       <BR><BR><BR>
+        <a th:href="@{/admin}" class="btn-sidebar">Dashboard <i class="fas fa-tachometer-alt"></i></a>
+        <a th:href="@{/events/create}" class="btn-sidebar">Create Event <i class="fas fa-calendar-plus"></i></a>
+        <a th:href="@{/events/display}" class="btn-sidebar">Ongoing Events <i class="fas fa-calendar-day"></i></a>
+      
+        <a th:href="@{/contact_data}" class="btn-sidebar">Contact Details <i class="fas fa-envelope"></i></a>
+        <a th:href="@{/event_registration_details}" >Registered Events<i class="fas fa-calendar-alt"></i></a> 
+        <a th:href="@{/art-uploads}" class="btn-sidebar">Art Uploads <i class="fas fa-upload"></i></a>
+        <a th:href="@{/index}" class="logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Event Registration Details</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <div th:if="${registrations != null and !#lists.isEmpty(registrations)}">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>Country</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="registration : ${registrations}">
+                        <td th:text="${registration.name}"></td>
+                        <td th:text="${registration.phone}"></td>
+                        <td th:text="${registration.email}"></td>
+                        <td th:text="${registration.dob}"></td>
+                        <td th:text="${registration.gender}"></td>
+                        <td th:text="${registration.country}"></td>
+                        <td th:text="${registration.address}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${registrations == null or #lists.isEmpty(registrations)}">
+            <p>No registration details available.</p>
+        </div>
+       
+    </main>
+</body>
+</html>

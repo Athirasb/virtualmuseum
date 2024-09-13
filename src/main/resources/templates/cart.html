@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Museum Art</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+	<link href='css/simplelightbox.min.css' rel='stylesheet' type='text/css'>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/ekko-lightbox.js"></script>
+  <style>
+    /* Cart Styles */
+    #cart {
+      padding: 50px 0;
+      background-color: #f4f4f4;
+    }
+
+    .cart-items {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-items h1 {
+      color: #9e0909;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .cart-items img {
+      width: 100px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .cart-items p {
+      margin-bottom: 5px;
+    }
+
+    .cart-items button {
+      background-color: #9e0909;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cart-items button:hover {
+      background-color: #b90707; /* Darker shade on hover */
+    }
+
+    .buy-all-btn {
+      background-color: #9e0909;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-all-btn:hover {
+      background-color: #b90707; /* Darker shade on hover */
+    }
+
+    /* Modal */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 9999; /* Higher z-index for modal visibility */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    }
+
+    .modal-content {
+      margin: 10% auto;
+      padding: 20px;
+      width: 90%; /* Increased width for better modal content presentation */
+      max-width: 500px; /* Slightly increased max-width */
+      background-color: #fff;
+      border-radius: 10px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    }
+
+    .payment-methods {
+      display: flex;
+      justify-content: center; /* Center payment methods horizontally */
+      align-items: center; /* Center items vertically */
+      margin-top: 20px;
+    }
+
+    .payment-methods img {
+      width: 120px; /* Larger payment method icons */
+      height: auto; /* Maintain aspect ratio */
+      margin: 0 10px; /* Increased margin between icons */
+      cursor: pointer;
+      transition: transform 0.3s ease; /* Smooth scale transition */
+    }
+
+    .payment-methods img:hover {
+      transform: scale(1.1); /* Scale up on hover for interaction */
+    }
+
+    .qr-code {
+      display: none; /* Hidden initially */
+      width: 200px; /* Larger QR code size */
+      height: 200px;
+      margin-top: 20px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #333; /* Darker close button color */
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease; /* Smooth color transition */
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #9e0909; /* Highlight close button on hover */
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <section id="header" class="clearfix cd-secondary-nav">
+    <nav class="navbar navbar-default">
+          <div class="container clearfix">
+          
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header clearfix page-scroll">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+          <a href="index.html" class="navbar-brand"><i class="fa fa-pencil"></i> Wizards <span>Art</span></a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse clearfix" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+                      <li>
+                          <a class="tag_menu_1" href="index.html">HOME</a>
+                      </li>
+                       <li>
+                          <a class="tag_menu" href="aboutus.html">ABOUT US</a>
+                      </li>
+                      <li>
+                          <a class="tag_menu" href="exhibitions.html">EVENTS</a>
+                      </li>
+                        <li>
+                          <a class="tag_menu" href="details.html">COLLECTIONS</a>
+                      </li>
+            <li>
+              <a class="tag_menu" href="gallery.html">GALLERY</a>
+            </li>
+                      <li>
+                          <a class="tag_menu" href="contact.html">CONTACT US</a>
+                      </li>  
+                  </ul> 
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+      </nav>
+  </section>
+  
+  <!-- header part starts here -->
+  
+  <!-- header ends here -->
+
+  <!-- cart items display starts here -->
+  <section id="cart">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="cart-items">
+            <h1 class="text-center">Your Cart</h1>
+            <div id="cart-content"></div>
+            <div id="cart-total">
+              <h3>Total Price: $<span id="total-price">0.00</span></h3>
+              <button class="buy-all-btn" onclick="buyAll()">Buy All</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- cart items display ends here -->
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <p style="color: #b90707;"><i><u><b>CHOOSE YOUR PAYMENT METHOD</b></u></i></p>
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="payment-methods">
+        <img id="clickText" src="img/Art_Page/googlepay.png">
+        <img id="clickText1" src="img/Art_Page/phonepe.png">
+      </div>
+      <img id="myImage" src="img/Art_Page/qr.png" alt="QR Code" class="qr-code hidden">
+      <img id="myImage1" src="img/Art_Page/qr.png" alt="QR Code" class="qr-code hidden">
+    </div>
+  </div>
+  <section id="footer">
+    <div class="container">
+     <div class="row">
+      <div class="footer clearfix">
+       <div class="footer_1 clearfix">
+       <div class="col-sm-3">
+        <div class="footer_1_left">
+         <h3>Museum Art of Lacinia</h3>
+         <p>695301 Kazhakkoottam<br>Thiruvananthapuram, Kerala<br>India</p>
+        </div>
+       </div>
+       <div class="col-sm-6">
+        <div class="footer_3 clearfix">
+      <!-- <p> Registration Open * 11234 0512 SS1110 </p> -->
+      <p>Our museum is dedicated to preserving and showcasing art and history from around the world. 
+         &copy; 2024 Virtual Museum. All rights reserved.</p>
+       </div>
+       </div>
+       <div class="col-sm-3">
+        <div class="footer_1_right pull-right">
+         <h1>AMZ <span>Museum Art of Lacinia</span></h1>
+        </div>
+       </div>
+       </div>
+       <div class="footer_2 clearfix">
+       <div class="col-sm-7">
+        <div class="footer_2_left">
+         <a href="#">Sign Up For Headlines</a>
+         <a href="#">Customer Detail</a>
+         <a href="#">Connect With Us</a>
+         <a href="#">Media</a>
+         <a href="#">Work</a>
+         <a class="border_none_1" href="#">Policy</a>
+        </div>
+       </div>
+       <div class="col-sm-5">
+        <div class="footer_2_right pull-right">
+         <ul class="social-network social-circle">
+                 <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                 <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                 <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                 <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                 <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+        </div>
+       </div>
+       </div>
+       
+      </div>
+     </div>
+    </div>
+     </section>
+
+  <!-- footer session starts here -->
+`
+  <!-- footer session ends here -->
+
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartContent = document.getElementById('cart-content');
+      const totalPriceElement = document.getElementById('total-price');
+      let totalPrice = 0;
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      if (cartItems.length > 0) {
+        cartItems.forEach((item, index) => {
+          const itemElement = document.createElement('div');
+          itemElement.innerHTML = `
+            <img src="${item.src}" alt="${item.name}" class="pull-left">
+            <div class="item-info pull-left">
+              <p>Name: ${item.name}</p>
+              <p>Artist: ${item.artist}</p>
+              <p>Price: $${item.price}</p>
+              <button class="btn btn-danger" onclick="removeItem(${index})">Remove</button>
+            </div>
+            <div class="clearfix"></div>
+            <hr>
+          `;
+          cartContent.appendChild(itemElement);
+          totalPrice += item.price;
+        });
+        totalPriceElement.innerText = totalPrice.toFixed(2);
+      } else {
+        cartContent.innerHTML = '<p>Your cart is empty</p>';
+      }
+
+      document.getElementById("clickText").addEventListener("click", function() {
+        document.getElementById("myImage").classList.toggle("hidden");
+      });
+
+      document.getElementById("clickText1").addEventListener("click", function() {
+        document.getElementById("myImage1").classList.toggle("hidden");
+      });
+
+    });
+
+    function removeItem(index) {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      if (cartItems.length > 0) {
+        cartItems.splice(index, 1);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        location.reload(); // Reload the page to update the cart display and total price
+      }
+    }
+
+    function buyAll() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      if (cartItems.length > 0) {
+        // Show the payment modal
+        document.getElementById('myModal').style.display = 'block';
+      } else {
+        alert('Your cart is empty');
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

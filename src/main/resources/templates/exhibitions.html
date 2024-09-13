@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Museum Art</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/blog.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		
+	    <link rel="stylesheet" href="css/jquery.flipster.min.css">
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	<script></script>
+	
+	
+
+  </head>
+<body>
+
+<section id="header" class="clearfix cd-secondary-nav">
+	<nav class="navbar navbar-default">
+        <div class="container clearfix">
+		    
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header clearfix page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<a href="index.html" class="navbar-brand"><i class="fa fa-pencil"></i> Arte <span>Nova</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse clearfix" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="tag_menu_1" th:href="@{/index}">HOME</a>
+                    </li>
+                    <li>
+                        <a class="tag_menu" th:href="@{/aboutus}">ABOUT US</a>
+                    </li>
+                    <li>
+                        <a class="tag_menu" th:href="@{/exhibitions}">EVENTS</a>
+                    </li>
+                    <li>
+                        <a class="tag_menu" th:href="@{/gallery}">GALLERY</a>
+                    </li>
+                    <li>
+                        <a class="tag_menu" th:href="@{/contact}">CONTACT US</a>
+                    </li>
+                    
+                   <li class="dropdown">
+    <a href="#" class="dropdown-toggle tag_menu" data-toggle="dropdown">
+        <i class="fa fa-user"></i> <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+        <li><a th:href="@{/login}">Artist/User</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li> 
+    </ul>
+</li>
+                </ul> 
+            </div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</section>
+
+
+     
+     
+     
+  <style>
+    .link-style {
+        color: blue; /* Link color */
+        text-decoration: underline; /* Underline the link */
+        word-break: break-all; /* Ensure long links break properly */
+    }
+</style>
+
+
+
+
+
+
+
+<style>
+    .zoom-effect {
+        transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    }
+
+    .zoom-effect:hover {
+        transform: scale(1.2); /* Increase the size by 10% */
+    }
+</style>
+
+<div class="container mt-5"><br>
+    <center><h2 style="color:darkred;">Events List</h2></center><br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="color:darkred;">Event Name</th>
+                <th style="color:darkred;">Description</th>
+                <th style="width: 100px;color:darkred;">Time</th>
+                <th style="width: 150px; color:darkred;">Date</th> <!-- Increased width here -->
+                <th style="width: 320px; color:darkred;">Link</th> <!-- Increased width here -->
+                <th style="width: 200px; color:darkred;">Image</th> <!-- Increased width here -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="event : ${events}">
+                <td th:text="${event.eventName}">Event Name</td>
+                <td th:text="${event.eventDescription}">Description</td>
+                <td th:text="${event.eventTime}">Time</td>
+                <td th:text="${event.eventDate}" style="width: 150px;">Date</td> <!-- Increased width here -->
+                <td>
+                    <a th:href="${event.eventLink}" class="link-style" th:text="${event.eventLink}">Link</a>
+                </td> <!-- Link with styling -->
+                <td style="width: 200px;">
+                    <img th:src="@{'/uploads/' + ${event.imageName}}" alt="Event Image" class="zoom-effect" style="width: 100%; max-width: 200px;" />
+                </td> <!-- Increased width here -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+<section id="deals_page">
+    <div class="container">
+        <center>
+            <h1>Upcoming Events</h1>
+        </center>
+        <div class="row">
+            <div class="deals_page clearfix">
+                <div class="col-sm-6">
+                    <div class="deals_page_left bg_1 clearfix">
+                        <div class="col-sm-5">
+                            <div class="deals_page_left_1 card-image">
+                                <a href="#"><img src="img/lgbtq.jpg" width="100%" height="185px"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 space_left">
+                            <div class="deals_page_left_2">
+                                <h6>LGBTQ+ Rights</h6>
+                                <h3><a href="#">"Rights are won only by those who make their voices heard"</a></h3>
+                                <p style="color:black;">Exhibition starts from 8/09/2024</p>
+                                <div class="clearfix deals_page_left_2_inner">
+                                   <a class="tag_1" th:href="@{/events_form}">Register</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6">
+                    <div class="deals_page_left clearfix">
+                        <div class="col-sm-5">
+                            <div class="deals_page_left_1 card-image">
+                                <a href="#"><img src="img/gender inequality.jpg" width="100%" height="185px"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 space_left">
+                            <div class="deals_page_left_2">
+                                <h6>Gender Inequality</h6>
+                                <h3><a href="#">"Gender equality is critical to the development and peace of every nation"</a></h3>
+                                <p>Exhibition starts from 22/10/2024</p>
+                                <div class="clearfix deals_page_left_2_inner">
+                                  <a class="tag_1" th:href="@{/events_form}">Register</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="deals_page clearfix">
+                <div class="col-sm-6">
+                    <div class="deals_page_left clearfix">
+                        <div class="col-sm-5">
+                            <div class="deals_page_left_1 card-image">
+                                <a href="#"><img src="img/child.jpg" width="100%" height="185px"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 space_left">
+                            <div class="deals_page_left_2">
+                                <h6>Child Welfare</h6>
+                                <h3><a href="#">"Children are the world's most valuable resource and its the best hope for the future"</a></h3>
+                                <p>Exhibition starts from 1/11/2024</p>
+                                <div class="clearfix deals_page_left_2_inner">
+                                    <a class="tag_1" th:href="@{/events_form}">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="deals_page_left clearfix">
+                        <div class="col-sm-5">
+                            <div class="deals_page_left_1 card-image">
+                                <a href="#"><img src="img/poverty.jpg" width="100%" height="185px"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 space_left">
+                            <div class="deals_page_left_2">
+                                <h6>Poverty</h6>
+                                <h3><a href="#">"Poverty is the worst form of violence"</a></h3>
+                                <p>Exhibition starts from 20/11/2024</p>
+                                <div class="clearfix deals_page_left_2_inner">
+                                    <a class="tag_1" th:href="@{/events_form}">Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blog" class="clearfix">
+	 <div class="container">
+	  
+	    <div class="blog_1 clearfix">
+		
+	      <div class="blog_dtm clearfix">
+		   <div class="blog_dt1 clearfix">
+		   
+			
+			<h2 style="color: #9e0909;">Helping People Grow Their Skills</h2>
+			<p>We are dedicated to helping artists grow their skills and gain visibility. If you are interested in showcasing your artworks in our virtual gallery, we would love to hear from you! Please contact us for more information. To get started, simply fill out the form below to upload your artwork. We look forward to seeing your creativity and talent shine in our exhibitions.</p>
+		   </div>
+		   <div class="blog_dt2 clearfix">
+		   <div class="col-sm-8 space_left blog_detail_1l1i">
+		    <h4 class="mgt col_1">Hey artist!!!</h>
+			<h4 class="col">Start Uploading Your Artwork by filling the form!</h4>
+		   </div>
+		   <div class="col-sm-4 space_right">
+		     <h5 class="text-right"><a class="button_1" th:href="@{/form}">Start Uploading</a></h5>
+		   </div>
+		  </div>
+			<div class="blog_dt1 clearfix">
+		   <br>
+			
+				<p>By participating in our virtual art gallery, you'll join a vibrant community of artists and art enthusiasts from around the world. This platform not only provides an opportunity to showcase your art but also to engage with a wider audience, receive valuable feedback, and connect with potential buyers and collaborators. Don't miss the chance to share your unique vision and contribute to our dynamic, socially relevant exhibitions.	</p>
+			   </div>
+		  </div>
+		  </section>
+
+
+ <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer clearfix">
+            <div class="footer_1 clearfix">
+              <div class="col-sm-3">
+                <div class="footer_1_left">
+                  <h3>ArteNova</h3>
+                  <p>695301 Kazhakkoottam<br>Thiruvananthapuram, Kerala<br>India</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer_3 clearfix">
+                  <p>Our museum is dedicated to preserving and showcasing art and history from around the world. 
+                    &copy; 2024 ArteNova. All rights reserved.</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="footer_1_right pull-right">
+                  <h1>AeN <span>ArteNova</span></h1>
+                </div>
+              </div>
+            </div>
+           
+              <div class="col-sm-5">
+                <div class="footer_2_right pull-right">
+                  <ul class="social-network social-circle">
+                  
+                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<div id="toTop" class="btn btn-info" style="display: block; background:#e02626; border-color:#e02626;"><span class="fa fa-chevron-up"></span></div>
+
+<script>
+$(document).ready(function(){
+  $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+	$(window).scroll(function () {
+		if ($(this).scrollTop() != 0) {
+			$('#toTop').fadeIn();
+		} else {
+			$('#toTop').fadeOut();
+		}
+	}); 
+$('#toTop').click(function(){
+	$("html, body").animate({ scrollTop: 0 }, 600);
+	return false;
+});
+});
+
+</script>
+
+<script>
+$(document).ready(function(){
+	/*****Fixed Menu******/
+	var secondaryNav = $('.cd-secondary-nav'),
+	   secondaryNavTopPosition = secondaryNav.offset().top;
+	   navbar_height = document.querySelector('.navbar').offsetHeight;
+	   
+		$(window).on('scroll', function(){
+		    if($(window).scrollTop() > secondaryNavTopPosition + navbar_height ) {
+				secondaryNav.addClass('is-fixed');	
+				document.body.style.paddingTop = navbar_height + 'px';
+				
+			} else {
+				secondaryNav.removeClass('is-fixed');
+				document.body.style.paddingTop = '0'
+			}
+		});	
+		
+});
+</script>
+
+
+
+</body>
+       
+</html>

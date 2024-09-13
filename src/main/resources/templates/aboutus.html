@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Museum Art</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+      /* Additional styles for paint app */
+      /* Toolbar styles */
+      .toolbar {
+          display: flex;
+          flex-wrap: wrap;
+          background-color: darkred;
+          padding: 20px;
+          width: 80%;
+          justify-content: center;
+          margin-bottom: 20px;
+              box-sizing: border-box; /* Ensures padding is included in the total width */
+          
+      }
+
+      /* Container for individual tools */
+      .toolbar > div {
+          margin: 0 10px;
+          color: white;
+      }
+
+      /* Button styles */
+      .toolbar button {
+          background-color: #444;
+          color: white;
+          border: none;
+          padding: 10px;
+          font-size: 20px;
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          margin: 0 5px;
+      }
+
+      /* Icon styles */
+      .toolbar-btn i {
+          font-size: 20px; /* Adjust icon size */
+      }
+
+      /* Hover effect for buttons */
+      .toolbar button:hover {
+          background-color: #666;
+      }
+
+      /* Canvas styles */
+      canvas {
+          border: 1px solid #000;
+          background-color: white;
+          display: block;
+          margin: 0 auto;
+      }
+
+      /* Color palette styles */
+      .color-palette {
+          margin: 0 10px;
+      }
+
+      .color-palette div {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin-right: 5px;
+          cursor: pointer;
+      }
+
+      /* Frame adjustment styles */
+      .frame-adjust {
+          display: flex;
+          align-items: center;
+          margin: 0 10px;
+      }
+
+      .frame-adjust button {
+          background-color: #444;
+          color: white;
+          border: none;
+          padding: 10px;
+          font-size: 20px;
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          margin: 0 5px;
+      }
+
+      .frame-adjust button:hover {
+          background-color: #666;
+      }
+      /* Additional styles for centering container */
+#paint-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* or a specific height depending on your layout */
+}
+
+.container {
+    width: 80%; /* Adjust width as needed */
+    max-width: 1200px; /* Optional: max width for larger screens */
+}
+      
+      .wavy-text {
+    font-size: 4.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6b6b, #f06595, #d7af5f, #4a9d8c);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 6s ease infinite;
+    display: inline-block;
+    position: relative;
+}
+
+/* Wavy animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Optional: Adding a slight wave effect */
+.wavy-text::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    mix-blend-mode: multiply;
+    z-index: -1;
+    animation: wave 4s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<section id="header" class="clearfix cd-secondary-nav">
+    <nav class="navbar navbar-default">
+        <div class="container clearfix">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header clearfix page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand"><i class="fa fa-pencil"></i> Museum <span>Art</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse clearfix" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="tag_menu_1" th:href="@{/index}">HOME</a></li>
+                    <li><a class="tag_menu" th:href="@{/aboutus}">ABOUT US</a></li>
+                    <li><a class="tag_menu" th:href="@{/exhibitions}">EVENTS</a></li>
+                    <li><a class="tag_menu" th:href="@{/gallery}">GALLERY</a></li>
+                    <li><a class="tag_menu" th:href="@{/contact}">CONTACT US</a></li>
+                </ul> 
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</section>
+
+<section id="collection">
+    <div class="collection_main clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="collection text-center clearfix">
+                    <h1>ABOUT US</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="collection_detail">
+    <div class="container">
+        <div class="row">
+            <div class="collection_detail clearfix">
+                <h3>KNOW THE VIRTUAL MUSEUM</h3>
+                <p>Welcome to the Virtual Museum of Social Realities, a unique digital space dedicated to raising awareness about pressing social issues through powerful imagery. Our museum serves as a platform for photographers, artists, and storytellers to highlight the struggles and triumphs of people around the world. By showcasing compelling visuals that capture the essence of social challenges, we aim to inspire empathy, understanding, and action.</p>
+                <p>Our exhibits cover a wide range of topics, including poverty, inequality, discrimination, environmental crises, and more. Each image in our collection tells a story, providing a window into the lives of those affected and encouraging visitors to engage with the issues on a deeper level. Through interactive features and detailed narratives, we offer an immersive experience that not only informs but also motivates viewers to become part of the solution. By visiting the Virtual Museum of Social Realities, you are not only expanding your understanding of the world's most pressing social issues but also contributing to efforts that make a real difference. Together, we can use the power of art and storytelling to build a more just and compassionate world. Join us on this journey of awareness and action, and be a part of the change you wish to see.</p>
+                <div class="collection_detail_1 collection_detail_home clearfix">
+                    <div class="col-sm-4 space_left">
+                        <div class="collection_detail_1_left clearfix">
+                            <div class="grid clearfix">
+                                <figure class="effect-marley">
+                                    <img src="img/about2.png" alt="img12">
+                                    <figcaption>
+                                        <a href="blog_detail.html">View more</a>
+                                    </figcaption>           
+                                </figure>
+                            </div>         
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="collection_detail_1_right">
+                            <h2>Our Commitment to Positive Change</h2>
+                            <p>One of the core values of the Virtual Museum of Social Realities is our commitment to social good. The profits generated from our virtual tours, art sales, and donations are directly channeled into various social initiatives. We partner with non-profit organizations, community groups, and grassroots movements to support projects that create tangible, positive change. This includes funding educational programs, providing resources for marginalized communities.</p>
+                            <h4><a th:href="@{/exhibitions}">VIEW EVENTS</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><br><br><br>
+
+<!-- Advanced Paint App Section --><center>
+<section id="paint-app-intro">
+    <div class="container text-center">
+        <h2 class="wavy-text">Unleash Your Creativity: Interactive Digital Canvas</h2><br>
+        <img src="images/painticon2.png" alt="Creative Canvas" class="intro-image" width="60px;">
+    </div><br>
+    <!-- Toolbar and Canvas Section -->
+    <div class="container">
+        <div class="toolbar">
+            <!-- Tool Buttons -->
+            <div>
+                <label for="brushSize">Brush Size:</label>
+                <input type="range" id="brushSize" min="1" max="20" value="5">
+            </div>
+            <div>
+                <label for="brushColor">Brush Color:</label>
+                <input type="color" id="brushColor" value="#000000">
+            </div>
+            <div class="color-palette">
+                <!-- Color palette items -->
+            </div>
+            <div>
+                <label for="shapeSelector">Shape:</label>
+                <select id="shapeSelector">
+                    <option value="freehand" style="color:black;">Freehand</option>
+                    <option value="rectangle" style="color:black;">Rectangle</option>
+                    <option value="circle" style="color:black;">Circle</option>
+                    <option value="line" style="color:black;">Line</option>
+                </select>
+            </div>
+            <div class="frame-adjust">
+                <button onclick="increaseCanvasSize()">+</button>
+                <button onclick="decreaseCanvasSize()">-</button>
+            </div>
+            <button class="toolbar-btn" onclick="clearCanvas()">
+                <i class="fa fa-eraser"></i>
+            </button>
+            <button class="toolbar-btn" onclick="saveImage()">
+                <i class="fa fa-download"></i>
+            </button>
+        
+        <div class="canvas-container">
+            <canvas id="paintCanvas" width="800" height="600"></canvas>
+        </div>
+        </div>
+    </div>
+</section>
+</center>
+
+
+    <script>
+        // JavaScript for Advanced Paint App
+        const canvas = document.getElementById('paintCanvas');
+        const ctx = canvas.getContext('2d');
+        let painting = false;
+        let brushColor = '#000000';
+        let brushSize = 5;
+        let shape = 'freehand';
+        let startX, startY;
+
+        function startPosition(e) {
+            painting = true;
+            [startX, startY] = [e.offsetX, e.offsetY];
+        }
+
+        function endPosition() {
+            painting = false;
+            ctx.beginPath();
+        }
+
+        function draw(e) {
+            if (!painting) return;
+
+            ctx.strokeStyle = brushColor;
+            ctx.lineWidth = brushSize;
+            ctx.lineCap = 'round';
+
+            if (shape === 'freehand') {
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            } else if (shape === 'rectangle') {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.rect(startX, startY, e.offsetX - startX, e.offsetY - startY);
+                ctx.stroke();
+            } else if (shape === 'circle') {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                let radius = Math.sqrt(Math.pow(e.offsetX - startX, 2) + Math.pow(e.offsetY - startY, 2));
+                ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
+                ctx.stroke();
+            } else if (shape === 'line') {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            }
+        }
+
+        function selectColor(color) {
+            brushColor = color;
+            document.getElementById('brushColor').value = color;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function saveImage() {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL();
+            link.download = 'paint.png';
+            link.click();
+        }
+
+        function increaseCanvasSize() {
+            canvas.width += 100;
+            canvas.height += 75;
+        }
+
+        function decreaseCanvasSize() {
+            canvas.width -= 100;
+            canvas.height -= 75;
+        }
+
+        document.getElementById('brushSize').addEventListener('input', (e) => {
+            brushSize = e.target.value;
+        });
+
+        document.getElementById('brushColor').addEventListener('input', (e) => {
+            brushColor = e.target.value;
+        });
+
+        document.getElementById('shapeSelector').addEventListener('change', (e) => {
+            shape = e.target.value;
+        });
+
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', endPosition);
+        canvas.addEventListener('mousemove', draw);
+    </script>
+</section>
+
+ <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer clearfix">
+            <div class="footer_1 clearfix">
+              <div class="col-sm-3">
+                <div class="footer_1_left">
+                  <h3>ArteNova</h3>
+                  <p>695301 Kazhakkoottam<br>Thiruvananthapuram, Kerala<br>India</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer_3 clearfix">
+                  <p>Our museum is dedicated to preserving and showcasing art and history from around the world. 
+                    &copy; 2024 ArteNova. All rights reserved.</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="footer_1_right pull-right">
+                  <h1>AeN <span>ArteNova</span></h1>
+                </div>
+              </div>
+            </div>
+           
+              <div class="col-sm-5">
+                <div class="footer_2_right pull-right">
+                  <ul class="social-network social-circle">
+                  
+                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<div id="toTop" class="btn btn-info" style="display: block; background:#e02626; border-color:#e02626;"><span class="fa fa-chevron-up"></span></div>
+
+<script>
+$(document).ready(function(){
+  $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+	$(window).scroll(function () {
+		if ($(this).scrollTop() != 0) {
+			$('#toTop').fadeIn();
+		} else {
+			$('#toTop').fadeOut();
+		}
+	}); 
+$('#toTop').click(function(){
+	$("html, body").animate({ scrollTop: 0 }, 600);
+	return false;
+});
+});
+
+</script>
+
+<script>
+	$(document).ready(function() {              
+    $('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){    
+        var $this = $(this),
+        c = $this.data('count');    
+        if (!c) c = 0;
+        c++;
+        $this.data('count',c);
+        $('#'+this.id+'-bs3').html(c);
+    });      
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });                                        
+}); 
+
+	</script>
+	
+<script src="js/simple-lightbox.js"></script>
+
+<script>
+	$(function(){
+		var $gallery = $('.gallery a').simpleLightbox();
+
+		$gallery.on('show.simplelightbox', function(){
+			console.log('Requested for showing');
+		})
+		.on('shown.simplelightbox', function(){
+			console.log('Shown');
+		})
+		.on('close.simplelightbox', function(){
+			console.log('Requested for closing');
+		})
+		.on('closed.simplelightbox', function(){
+			console.log('Closed');
+		})
+		.on('change.simplelightbox', function(){
+			console.log('Requested for change');
+		})
+		.on('next.simplelightbox', function(){
+			console.log('Requested for next');
+		})
+		.on('prev.simplelightbox', function(){
+			console.log('Requested for prev');
+		})
+		.on('nextImageLoaded.simplelightbox', function(){
+			console.log('Next image loaded');
+		})
+		.on('prevImageLoaded.simplelightbox', function(){
+			console.log('Prev image loaded');
+		})
+		.on('changed.simplelightbox', function(){
+			console.log('Image changed');
+		})
+		.on('nextDone.simplelightbox', function(){
+			console.log('Image changed to next');
+		})
+		.on('prevDone.simplelightbox', function(){
+			console.log('Image changed to prev');
+		})
+		.on('error.simplelightbox', function(e){
+			console.log('No image found, go to the next/prev');
+			console.log(e);
+		});
+	});
+</script>
+
+<script>
+$(document).ready(function(){
+	/*****Fixed Menu******/
+	var secondaryNav = $('.cd-secondary-nav'),
+	   secondaryNavTopPosition = secondaryNav.offset().top;
+	   navbar_height = document.querySelector('.navbar').offsetHeight;
+	   
+		$(window).on('scroll', function(){
+		    if($(window).scrollTop() > secondaryNavTopPosition + navbar_height ) {
+				secondaryNav.addClass('is-fixed');	
+				document.body.style.paddingTop = navbar_height + 'px';
+				
+			} else {
+				secondaryNav.removeClass('is-fixed');
+				document.body.style.paddingTop = '0'
+			}
+		});	
+		
+});
+</script>
+
+
+</body>
+       
+</html>
+

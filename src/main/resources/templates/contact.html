@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Museum Art</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    <section id="header" class="clearfix cd-secondary-nav">
+      <nav class="navbar navbar-default">
+        <div class="container clearfix">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header clearfix page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="#" th:href="@{/index}" class="navbar-brand"><i class="fa fa-pencil"></i> Arte <span>Nova</span></a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+       <div class="collapse navbar-collapse clearfix" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a class="tag_menu_1" th:href="@{/index}">HOME</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/aboutus}">ABOUT US</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/exhibitions}">EVENTS</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/gallery}">GALLERY</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/contact}">CONTACT US</a>
+        </li>
+       
+    </ul> 
+</div>
+
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+    </section>
+
+    <section id="contact_us">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <h1 class="port">CONTACT</h1>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- Contact form -->
+               <form name="sentMessage" id="contactForm" th:action="@{/contact}" method="post" novalidate>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Name</label>
+            <input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+            <p class="help-block text-danger"></p>
+        </div>
+    </div>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Email Address</label>
+            <input type="email" class="form-control" placeholder="Email Address" id="email" name="email" required>
+            <p class="help-block text-danger"></p>
+        </div>
+    </div>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Phone Number</label>
+            <input type="tel" class="form-control" placeholder="Phone Number" id="phone" name="phone" required>
+            <p class="help-block text-danger"></p>
+        </div>
+    </div>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Message</label>
+            <textarea rows="5" class="form-control" placeholder="Message" id="message" name="message" required></textarea>
+            <p class="help-block text-danger"></p>
+        </div>
+    </div>
+    <br>
+    <div id="success"></div>
+    <div class="row">
+        <div class="form-group col-xs-12 button_1">
+            <button type="submit" class="btn btn-success btn-lg">Send</button>
+        </div>
+    </div>
+</form>
+
+              </div>
+              <iframe
+                src="https://maps.google.com/maps?q=kazhakoottam&t=&z=10&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" width="520" height="500" style="border:0;" scrolling="no" marginheight="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact clearfix">
+            <div class="col-sm-4">
+              <div class="contact_inner text-center">
+                <h1><i class="fa fa-map-marker"></i></h1>
+                <h2>Address</h2>
+                <h3>ArteNova</h3>
+                <p>695301 Kazhakkoottam, Thiruvananthapuram, Kerala, India</p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="contact_inner icon_2 text-center">
+                <h1><i class="fa fa-envelope"></i></h1>
+                <h2>Email</h2>
+                <p>
+                  <a href="mailto:mahimamahi8518@gmail.com">mahimamahi8518@gmail.com</a><br>
+                  <a href="mailto:athirasb735@gmail.com">athirasb735@gmail.com</a><br>
+                  <a href="mailto:sooryaa013@gmail.com">sooryaa013@gmail.com</a><br>
+                  <a href="mailto:anakhasuresh888@gmail.com">anakhasuresh888@gmail.com</a>
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="contact_inner icon_3 text-center">
+                <h1><i class="fa fa-phone"></i></h1>
+                <h2>Contact No.</h2>
+                <span class="span_1"><i class="fa fa-phone-square"></i> +91 - 1234-567-890</span>
+                <span class="span_2"><i class="fa fa-whatsapp"></i> +91 - 1234-567-890</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer clearfix">
+            <div class="footer_1 clearfix">
+              <div class="col-sm-3">
+                <div class="footer_1_left">
+                  <h3>ArteNova</h3>
+                  <p>695301 Kazhakkoottam<br>Thiruvananthapuram, Kerala<br>India</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer_3 clearfix">
+                  <p>Our museum is dedicated to preserving and showcasing art and history from around the world. 
+                    &copy; 2024 ArteNova. All rights reserved.</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="footer_1_right pull-right">
+                  <h1>AeN <span>ArteNova</span></h1>
+                </div>
+              </div>
+            </div>
+           
+              <div class="col-sm-5">
+                <div class="footer_2_right pull-right">
+                  <ul class="social-network social-circle">
+                  
+                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="toTop" class="btn btn-info" style="display: block; background:#e02626; border-color:#e02626;"><span class="fa fa-chevron-up"></span></div>
+
+    <script>
+      $(document).ready(function(){
+        $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+        $(window).scroll(function () {
+          if ($(this).scrollTop() != 0) {
+            $('#toTop').fadeIn();
+          } else {
+            $('#toTop').fadeOut();
+          }
+        }); 
+        $('#toTop').click(function(){
+          $("html, body").animate({ scrollTop: 0 }, 600);
+          return false;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        /*****Fixed Menu******/
+        var secondaryNav = $('.cd-secondary-nav'),
+           secondaryNavTopPosition = secondaryNav.offset().top;
+           navbar_height = document.querySelector('.navbar').offsetHeight;
+           
+        $(window).on('scroll', function(){
+          if($(window).scrollTop() > secondaryNavTopPosition + navbar_height ) {
+            secondaryNav.addClass('is-fixed');  
+            document.body.style.paddingTop = navbar_height + 'px';
+          } else {
+            secondaryNav.removeClass('is-fixed');
+            document.body.style.paddingTop = '0'
+          }
+        }); 
+      });
+    </script>
+
+  </body>
+</html>

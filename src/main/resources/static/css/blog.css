@@ -1,0 +1,381 @@
+/*
+Template Name:Museum Art
+File: Layout CSS
+Author: Templates On Web
+Author URI: http://templateonweb.com/
+Licence: <a href="http://www.templateonweb.com/terms.php?v=content&contentid=152">Website Template Licence</a>
+*/
+
+#blog a{
+ color:#333;
+ }
+#blog a:hover{
+text-decoration:none;
+color:#e02626;
+}
+#blog a:focus{
+text-decoration:none;
+color:#e02626;
+}
+#blog ul{
+padding:0;
+margin:0;
+list-style:none;
+margin-top:15px;
+}
+#blog li{
+font-size:18px;
+  }
+.small_tag{
+font-size:17px!important; 
+font-weight:normal;
+ }
+#blog p{
+padding:0;
+margin:0;
+font-size:20px;
+margin-top:15px;
+color:#333;
+letter-spacing:1px;
+}
+#blog h1{
+font-size:48px;
+margin-top:15px;
+}
+#blog h2{
+font-size:40px;
+margin-top:15px;
+}
+#blog h3{
+font-size:32px;
+margin-top:15px;
+}
+#blog h4{
+font-size:24px;
+margin-top:15px;
+}
+#blog h5{
+font-size:20px;
+margin-top:15px;
+}
+#blog h6{
+font-size:18px;
+margin-top:15px;
+font-weight:normal;
+}
+.iw{
+   width:100%;
+   }
+#blog hr {
+border-color:#b912121c;
+}
+#blog .button{
+background: #e02626;
+display:inline-block;
+color:#fff;
+padding:15px 25px;
+margin-top:10px;
+  }
+#blog .button:hover{
+background:#dfc187!important;
+color:#fff;
+  }
+#blog .button i{
+margin-left:5px;
+margin-right:5px;
+  }
+  
+#blog .button_1{
+background: #dfc187;
+display:inline-block;
+color:#fff;
+padding:15px 25px;
+margin-top:10px;
+  }
+#blog .button_1:hover{
+background:#e02626!important;
+color:#fff;
+  }
+#blog .button_1 i{
+margin-left:5px;
+margin-right:5px;
+  }
+#blog .border_none{
+  border:none!important;
+  }
+#blog .mgt{
+  margin-top:0!important;
+  }
+#blog .bold{
+ font-weight:bold!important;
+  }
+#blog.normal{
+ font-weight:100!important;
+  }
+#blog .col{
+color:#fff!important;  
+  }
+#blog .col_1{
+ color:#e02626!important;
+ }
+#blog .col_2{
+ color:#999!important;
+ }
+#blog .col_3{
+ color:#ddd!important;
+ }
+#blog .col_4{
+color:#dfc187!important;
+ }
+.pdb{
+padding-bottom:0!important; 
+ }
+#blog .pdt{
+padding-top:0!important; 
+ }
+#blog .mgb{
+margin-bottom:0!important; 
+ }
+#blog .block{
+display:block; 
+ }
+#blog .inline{
+display:inline-block; 
+ }
+#blog .bgn{
+background:none!important; 
+ }
+#blog .big{
+text-transform:uppercase; 
+ }
+#blog .mgl {
+margin-left: 0!important;
+}
+/*********************blog_detail****************/
+#blog{
+padding-top:50px;
+padding-bottom:50px; 
+ }
+.blog_1li h6 i{
+font-size:14px;
+margin-right:5px;
+ }
+.blog_1li h6 a{
+margin-right:10px;
+ }
+.blog_1li{
+box-shadow: 0 0 10px #dfc1871c;
+padding:10px; 
+ }
+.blog_1l{
+margin-top:30px; 
+ }
+.product_1i1 {
+box-shadow: 0 0 10px #dfc1871c;
+padding: 15px;
+}
+.product_1i1 .input-group{
+margin-top:15px; 
+ }
+.product_1i1 .form-control{
+height:46px;
+border:none;
+box-shadow:none;
+border-radius:0;
+background:#dfc1871c;
+font-size:16px;
+ }
+.product_1i1 .btn{
+background: #e02626;
+border-color: #e02626;
+margin-left:0!important;
+border-radius:0;
+padding:12px 20px;
+ }
+.product_1i1 .btn:hover{
+background: #dfc187;
+border-color: #dfc187;
+color:#000;
+ }
+.hr_1 {
+border-color: #e02626!important;
+width: 70px;
+border-width: 3px;
+}
+.list_1r2{
+box-shadow: 0 0 10px #dfc1871c;
+padding: 15px; 
+ }
+.list_1r2 h6 i {
+margin-right: 5px;
+}
+.list_1r2 ul li a {
+background-color: #e02626;
+}
+.product_1i1 ul li {
+display: inline-block;
+margin-top: 5px;
+font-size:16px;
+}
+.product_1i1 ul li a {
+padding: 8px 8px 8px 8px;
+display: block;
+background: #dfc1871c;
+}
+.product_1i1 ul li a:hover {
+background:#e02626;
+color:#fff!important;
+}
+.blog_1li2{
+box-shadow: 0 0 10px #dfc1871c;
+padding: 15px; 
+ }
+.blog_1li2 h6 {
+border-bottom: 1px solid #b912121c;
+padding-bottom: 15px;
+font-size: 16px;
+}
+.blog_1li2 h6 i {
+font-size: 6px;
+vertical-align: middle;
+margin-right: 5px;
+}
+
+.blog_dt1 ul li {
+display: inline-block;
+padding-right: 10px;
+}
+.blog_dt1 ul li i {
+margin-right: 5px;
+}
+.blog_dt2 {
+background: #111;
+margin-top: 20px;
+padding: 30px 20px;
+}
+.blog_dt3 {
+margin-top: 20px;
+}
+.blog_detail_1l2i1 {
+background: #dfc1871c;
+padding: 30px 15px;
+}
+.blog_dt5 {
+margin-top: 20px;
+}
+.blog_dt5 p i {
+color: #e02626;
+margin-right: 5px;
+font-size: 16px;
+}
+.blog_detail_1l5 {
+background: #dfc1871c;
+margin-top: 20px;
+padding: 25px 20px;
+border-radius: 5px;
+}
+.blog_detail_1l5 ul li {
+display: inline-block;
+padding-left: 10px;
+padding-right: 10px;
+color: #e02626;
+}
+.blog_detail_1l5 ul li i {
+margin-right: 5px;
+}
+.blog_detail_1l6 {
+background: #dfc1871c;
+padding: 30px 10px 10px 10px;
+margin-top: 20px;
+}
+.blog_detail_1l6r {
+padding-top: 10px;
+}
+.blog_detail_1l6r h4 span {
+color: #e02626;
+font-size: 16px;
+margin-left: 5px;
+font-weight:normal;
+}
+.blog_detail_1l6r h5 a {
+padding: 5px 20px!important;
+font-weight:normal;
+}
+.home_inner .form-control {
+height: 50px;
+color: #333;
+font-size: 18px;
+margin-top: 15px;
+border-color: #b912121c;
+box-shadow: none;
+}
+.home_inner .form_1 {
+height: 150px;
+}
+.carousel-control{
+color:#fff!important; 
+ }
+/*********************blog_detail_end****************/
+
+
+@media screen and (max-width : 767px){
+.blog_1li {
+margin-top:10px; 
+ }
+#blog{
+text-align:center; 
+ }
+#blog p{
+text-align:left; 
+ }
+#blog .mgl{
+margin-left:auto!important;
+margin-right:auto!important; 
+ }
+#blog hr{
+margin-left:auto!important; 
+ }
+.blog_1r {
+margin-top:15px; 
+ }
+.list_1r2  h6{
+text-align:left; 
+ }
+.blog_1li2 h6{
+text-align:left; 
+ }
+.blog_dt2 .col-sm-4 h5{
+text-align:center;  
+ }
+.blog_detail_1l2i1 {
+margin-top:10px; 
+ }
+.blog_detail_1l6r .col-sm-6{
+text-align:center;
+margin-top:10px; 
+ }
+.blog_detail_1l6l .thumbnail{
+margin-bottom:0; 
+ }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+.list_1r2  .small_tag{
+font-size:14px!important; 
+ }
+.list_1r2  ul.social-network li{
+margin-bottom:5px; 
+ }
+.blog_dt2 .button_1{
+padding:8px 5px; 
+ }
+ }
+@media (min-width:992px) and (max-width:1200px) {
+
+  }
+@media (min-width:1201px) and (max-width:1355px) {
+
+ }
+
+
+

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration and Login System</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Aladin', cursive;
+        }
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+      
+        
+        .login-form {
+            margin-top: 50px;
+            background-color: #f7f7f7;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-form h2 {
+            margin-bottom: 30px;
+        }
+        .login-form .form-control {
+            border-radius: 0;
+            box-shadow: none;
+            border-color: #ddd;
+        }
+        .login-form .btn-primary {
+            background-color: #333;
+            border-color: #333;
+        }
+        .login-form .btn-primary:hover {
+            background-color: #555;
+            border-color: #555;
+        }
+        .login-form .alert {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+	<section id="header" class="clearfix cd-secondary-nav">
+	    <nav class="navbar navbar-default">
+	        <div class="container clearfix">
+	            
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header clearfix page-scroll">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a href="index.html" class="navbar-brand"><i class="fa fa-pencil"></i> Museum <span>Art</span></a>
+	            </div>
+
+	            <!-- Collect the nav links, forms, and other content for toggling -->
+	            <div class="collapse navbar-collapse clearfix" id="bs-example-navbar-collapse-1">
+	                <ul class="nav navbar-nav navbar-right">
+						<li>
+						                      <a class="tag_menu_1" th:href="@{/index}">HOME</a>
+						                  </li>
+						                  <li>
+						                      <a class="tag_menu" th:href="@{/aboutus}">ABOUT US</a>
+						                  </li>
+						                  <li>
+						                      <a class="tag_menu" th:href="@{/exhibitions}">EVENTS</a>
+						                  </li>
+						              
+						                  <li>
+						                      <a class="tag_menu" th:href="@{/gallery}">GALLERY</a>
+						                  </li>
+						                  <li>
+						                      <a class="tag_menu"th:href="@{/contact}">CONTACT US</a>
+						                  </li>
+	                </ul> 
+	            </div>
+	            <!-- /.navbar-collapse -->
+	        </div>
+	        <!-- /.container-fluid -->
+	    </nav>
+	</section>
+
+
+<div class="container">
+    <div th:if="${param.success}">
+        <div class="alert alert-info">
+            You have successfully registered our app!
+        </div>
+    </div>
+    <div class="col-md-6 col-md-offset-3 login-form">
+        <div class="card-body">
+            <form method="post" role="form" th:action="@{/register/save}" th:object="${user}">
+                <div class="form-group mb-3">
+                    <label class="form-label">First Name</label>
+                    <input class="form-control" id="firstName" name="firstName" placeholder="Enter first name" th:field="*{firstName}" type="text"/>
+                    <p th:errors="*{firstName}" class="text-danger" th:if="${#fields.hasErrors('firstName')}"></p>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input class="form-control" id="lastName" name="lastName" placeholder="Enter last name" th:field="*{lastName}" type="text"/>
+                    <p th:errors="*{lastName}" class="text-danger" th:if="${#fields.hasErrors('lastName')}"></p>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">Email</label>
+                    <input class="form-control" id="email" name="email" placeholder="Enter email address" th:field="*{email}" type="email"/>
+                    <p th:errors="*{email}" class="text-danger" th:if="${#fields.hasErrors('email')}"></p>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">Password</label>
+                    <input class="form-control" id="password" name="password" placeholder="Enter password" th:field="*{password}" type="password"/>
+                    <p th:errors="*{password}" class="text-danger" th:if="${#fields.hasErrors('password')}"></p>
+                </div>
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" type="submit">Register</button><br><br>
+                    <span>Already registered? <a th:href="@{/login}">Login here</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<section id="footer">
+    <div class="container">
+     <div class="row">
+      <div class="footer clearfix">
+       <div class="footer_1 clearfix">
+         <div class="col-sm-3">
+          <div class="footer_1_left">
+           <h3>Museum Art of Lacinia</h3>
+           <p>695301 Kazhakkoottam<br>Thiruvananthapuram, Kerala<br>India</p>
+          </div>
+         </div>
+         <div class="col-sm-6">
+          <div class="footer_3 clearfix">
+        <!-- <p> Registration Open * 11234 0512 SS1110 </p> -->
+        <p>Our museum is dedicated to preserving and showcasing art and history from around the world. 
+           &copy; 2024 Virtual Museum. All rights reserved.</p>
+       </div>
+         </div>
+         <div class="col-sm-3">
+          <div class="footer_1_right pull-right">
+           <h1>AMZ <span>Museum Art of Lacinia</span></h1>
+          </div>
+         </div>
+       </div>
+       <div class="footer_2 clearfix">
+         <div class="col-sm-7">
+          <div class="footer_2_left">
+           <a href="#">Sign Up For Headlines</a>
+           <a href="#">Customer Detail</a>
+           <a href="#">Connect With Us</a>
+           <a href="#">Media</a>
+           <a href="#">Work</a>
+           <a class="border_none_1" href="#">Policy</a>
+          </div>
+         </div>
+         <div class="col-sm-5">
+          <div class="footer_2_right pull-right">
+             <ul class="social-network social-circle">
+                           <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                           <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                           <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                           <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                           <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+         </div>
+       </div>
+       
+      </div>
+     </div>
+    </div>
+   </section>
+
+</body>
+</html>

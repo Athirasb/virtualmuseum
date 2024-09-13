@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4e1c3; /* Sandal beige background */
+            font-family: 'Georgia', serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #c0392b; /* Red color for heading */
+            font-family: 'Merriweather', serif;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            color: #c0392b; /* Red color for labels */
+        }
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #e0a96d; /* Light sandal border */
+        }
+        #image {
+            margin-top: 10px;
+        }
+        img {
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #c0392b; /* Red button */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Georgia', serif;
+            color: white;
+          
+        }
+        button:hover {
+            background-color: #a93226; /* Darker red on hover */
+        }
+        .back-button {
+            background-color: #e0a96d; /* Sandal colored back button */
+            color: white;
+            margin-bottom: 20px;
+        }
+        .back-button:hover {
+            background-color: #d18b5f; /* Darker sandal on hover */
+        }
+    </style>
+</head>
+<body>
+ <!-- Back to Dashboard Button -->
+     
+    <div class="container mt-5">
+        <h2>Edit Event</h2>
+
+       
+
+        <form th:action="@{/events/update}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" th:value="${event.id}" />
+            
+            <div class="form-group">
+                <label for="eventName">Event Name</label>
+                <input type="text" id="eventName" name="eventName" class="form-control" th:value="${event.eventName}" required />
+            </div>
+            <div class="form-group">
+                <label for="eventDescription">Event Description</label>
+                <textarea id="eventDescription" name="eventDescription" class="form-control" required th:text="${event.eventDescription}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="eventTime">Event Time</label>
+                <input type="time" id="eventTime" name="eventTime" class="form-control" th:value="${event.eventTime}" required />
+            </div>
+            <div class="form-group">
+                <label for="eventDate">Event Date</label>
+                <input type="date" id="eventDate" name="eventDate" class="form-control" th:value="${event.eventDate}" required />
+            </div>
+            <div class="form-group">
+                <label for="eventLink">Event Link</label>
+                <input type="text" id="eventLink" name="eventLink" class="form-control" th:value="${event.eventLink}" />
+            </div>
+            <div class="form-group">
+                <label for="image">Event Image</label>
+                <input type="file" id="image" name="image" class="form-control" />
+                <img th:src="@{'/uploads/' + ${event.imageName}}" alt="Event Image" style="width:150px; margin-top:10px;" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update</button><br>
+            <br>
+               <a th:href="@{/events/display}" class="btn back-button">Back to Dashboard</a>
+            
+        </form>
+    </div>
+</body>
+</html>

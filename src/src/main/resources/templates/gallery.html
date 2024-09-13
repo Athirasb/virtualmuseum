@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<style>
+		.hero {
+    width: 100%;
+    height: 100vh;
+    background: #0a1128;
+    overflow: hidden;
+}
+
+.hero .carousel {
+     width: 300px;
+     margin: 100px auto 0;
+     overflow: visible;
+}
+
+.carousel img {
+    -webkit-box-reflect: below 20px linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.3));
+    border: 5px solid rgb(255, 3, 3);
+    border-radius: 1.5rem;
+}
+
+
+
+
+ .art-gallery {
+    padding: 50px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.art-gallery h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Adjust the card-img-top class */
+.card-img-top {
+    width: 100%;
+    height: auto; /* Automatically adjusts the height based on the image ratio */
+    max-height: 280px; /* Ensures the image doesn't exceed a certain height */
+    object-fit: contain; /* Ensures the entire image is visible, even if it doesn't fill the entire area */
+    border-radius: 10px 10px 0 0;
+    background-color: #f5f5f5; /* Add a background color to fill the empty space when using 'contain' */
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #777;
+}
+
+.art-gallery-title {
+    font-family: 'Courier New', Courier, monospace; /* Choose a monospaced font for a text art look */
+    font-size: 3rem; /* Adjust size as needed */
+    color: darkred; /* Dark red color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect for more depth */
+    letter-spacing: 2px; /* Adjust spacing between letters */
+    font-weight: bold; /* Make the text bold for more emphasis */
+    margin: 0;
+}
+
+
+	</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Museum Art</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/blog.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/jquery.flipster.min.css">
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+  </head>
+<body>
+
+	<section id="header" class="clearfix cd-secondary-nav">
+        <nav class="navbar navbar-default">
+            <div class="container clearfix">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header clearfix page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html" class="navbar-brand"><i class="fa fa-pencil"></i> Arte <span>Nova</span></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse clearfix" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a class="tag_menu_1" th:href="@{/index}">HOME</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/aboutus}">ABOUT US</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/exhibitions}">EVENTS</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/gallery}">GALLERY</a>
+        </li>
+        <li>
+            <a class="tag_menu" th:href="@{/contact}">CONTACT US</a>
+        </li>
+        
+    </ul> 
+</div>
+
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </section>
+	
+	<br>
+	
+<div class="container mt-5">
+<center><h1 class="art-gallery-title">Art Gallery</h1></center>
+
+    <h3 class="text-center">Take a look at some of the arts uploaded by artists</h3>
+    <br>
+    <br>
+    
+    <div class="row">
+        <div class="col-md-4" th:each="artwork : ${artworks}">
+            <div class="card mb-4">
+                <img class="card-img-top" th:src="@{'/uploads/' + ${artwork.imageName}}" alt="Artwork" 
+                     onerror="this.onerror=null; this.src='/path/to/placeholder.jpg'">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${artwork.artTitle}">Art Title</h5>
+                    <p class="card-text" th:text="${artwork.artDescription}">Art Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+       
+        
+        <section id="blog" class="clearfix">
+	 <div class="container">
+	  
+	    <div class="blog_1 clearfix">
+		
+	      <div class="blog_dtm clearfix">
+		   <div class="blog_dt1 clearfix">
+		   
+			
+		   </div>
+		   <div class="blog_dt2 clearfix">
+		   <div class="col-sm-8 space_left blog_detail_1l1i">
+		    <h4 class="mgt col_1">Are you an artist?</h>
+			<h4 class="col">Do you want to showcase your artworks in our gallery? If yes,  then please contact us.</h4>
+		   </div>
+		   <div class="col-sm-4 space_right">
+		     <h5 class="text-right"><a class="button_1" th:href="@{/exhibitions#blog}">Click Here</a></h5>
+		   </div>
+		  </div>
+			
+		  </div>
+		  </section>
+</section>
+
+
+<section id="exhibition">
+    <div class="container">
+		<div class="row">
+	  <div class="blog_detail_1l7 clearfix">
+		<center>
+		<h2 style="color: #9e0909; font-size:40px;">An Encouragement Gift for Her Beautiful Drawing</h2></center>
+	   </div><br><br>
+		<div class="blog_1l mgt clearfix">
+		<div class="col-sm-6 space_left">
+		 <div class="blog_1li clearfix">
+		  <h4 class="mgt" style=" font-size:30px;">A Moment of Recognition</a></h4><br>
+		  <!-- <h6><i class="fa fa-calendar col_1"></i> <a href="#">Jan 21, 2020</a> <i class="fa fa-user col_1"></i> <a href="#">Eget Nulla</a></h6><br> -->
+		  <a href="#"><img src="images/img02.jpg" height="260" class="iw" alt="abc"></a>
+		  <p style=" font-size:20px;">Art has a unique way of touching hearts and bringing joy to those who create and those who admire it. Recently, our talented artist Soorya experienced a heartwarming moment of recognition when she received a special encouragement gift for her beautiful drawing.</p>
+		  <!-- <h5><a class="button_1" href="#">READ MORE</a></h5> -->
+		 </div>
+		</div>
+		<div class="col-sm-6 space_right">
+		 <div class="blog_1li clearfix">
+		  <h4 class="mgt" style=" font-size:30px;">Participation in G20: A Global Perspective</a></h4><br>
+		  <!-- <h6><i class="fa fa-calendar col_1"></i> <a href="#">Jan 21, 2020</a> <i class="fa fa-user col_1"></i> <a href="#">Eget Nulla</a></h6><br> -->
+		  <a href="#"><img src="images/img01.jpeg" height="260" class="iw" alt="abc"></a>
+		  <p style=" font-size:20px;">Participated in the G20 competition and got recognition. It provides a platform for discussing global economic issues and fostering international cooperation. To celebrate this participation, communities can come together to create a beautiful rangoli, symbolizing unity and cultural richness.</p>
+		  <!-- <h5><a class="button_1" href="#">READ MORE</a></h5> -->
+		 </div>
+		</div>
+	   </div>
+		
+	   
+	   
+		 <!-- Carousel nav -->
+		 <a class="left carousel-control" href="#myCarousel_2" role="button" data-slide="prev">
+			 <span class="glyphicon glyphicon-chevron-left"></span>                                       
+		 </a>
+		 <a class="right carousel-control" href="#myCarousel_2" role="button" data-slide="next">
+			 <span class="glyphicon glyphicon-chevron-right"></span>                                       
+		 </a>                                
+	  </div>
+	   </div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+  </div>
+ </section>
+ 
+ 
+ <br>
+ <br>
+ 
+	   
+	  
+	  
+ </div>
+</section>
+
+<section>
+<center><h2 style="color:darkred">These are the artworks done by Soorya.S (@__soo__rya__)
+</h2></center>
+	<div class="hero" style=" margin: 30px; width: 150rem;" >
+        <div class="carousel">
+            <ul>
+                <li><img src="images/img7.jpg" alt=""></li>
+                <li><img src="images/img8.jpg" alt=""></li>
+                <li><img src="images/img1.jpg" alt=""></li>
+                <li><img src="images/img10.png" alt=""></li>
+                <li><img src="images/img9.png" alt=""></li>
+                <li><img src="images/img2.jpg" alt=""></li>
+                <li><img src="images/img3.jpg" alt=""></li>
+                <li><img src="images/img4.jpg" alt=""></li>
+                <li><img src="images/img5.jpg" alt=""></li>
+                <li><img src="images/img6.jpg" alt=""></li>
+                <!-- <li><img src="images/img11.png" alt=""></li> -->
+            </ul>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<section id="collection_detail">
+	<div class="container">
+	 <div class="row">
+	  <div class="collection_detail clearfix">
+	   <center><h2 style="color: #9e0909;">What is ART!</h2></center>
+	   <br>
+	   <p style="text-align: justify;">Art is a multifaceted and profound concept that embodies the creative expression 
+		of human imagination, skill, and emotion. It encompasses a wide range of activities and outputs, from painting,
+		 sculpture, and literature to music, dance, and digital media. Art serves as a powerful medium for conveying 
+		 complex ideas, emotions, and narratives, often transcending the limitations of language. It can be a reflection
+		  of the artist's inner world, a commentary on society, or an exploration of beauty and aesthetics. Throughout history,
+		   art has played a crucial role in cultural and societal development, preserving traditions, challenging norms, and
+		    fostering innovation. It not only provides aesthetic pleasure and inspiration but also encourages critical thinking 
+			and empathy by allowing us to see the world from different perspectives. In essence, art is a vital aspect of human
+			 existence, enriching our lives and connecting us through shared experiences and universal themes. </p>
+	  </div>
+
+	  <!-- artists session starts here -->
+
+   <section id="blog_post">
+	<div class="blog_post_main clearfix">
+	  <div class="container">
+	 <div class="row">
+	  <div class="clinic_home text-center clearfix">
+	   <h1 style="color: #9e0909;">famous artists</h1>
+	   <p> Many famous artists throughout history, each renowned for their unique contributions to the world of art.</p>
+	  </div>
+	  <div class="blog_post clearfix">
+	   <div class="col-sm-4">
+		<div class="blog_post_inner">
+		  <div class="card-image"><img src="img/Art_Page/leonardo.jfif" width="100%" height="300px"></div>
+		  <h5>(1452–1519)</h5>
+		  <h4><a href="#">Leonardo da Vinci</a></h4>
+		  <p> he is best known for his dramatic and expressive artwork, Leonardo also conducted dozens of carefully thought out experiments and created futuristic inventions that were groundbreaking for the time.  </p>
+		</div>
+	   </div>
+	   <div class="col-sm-4">
+		<div class="blog_post_inner">
+		  <div class="card-image"><img src="img/Art_Page/michelangelo.jpg" width="100%" height="300px"></div>
+		  <h5>(1475–1564)</h5>
+		  <h4><a href="#">Michelangelo</a></h4>
+		  <p>Michelangelo Buonarroti as one of the greatest artists of all time. During his prodigious career he sculpted the Pieta in Rome and the David in Florence even designed the dome for St. Peter's Basilica, to name just a few.</p>
+		</div>
+	   </div>
+	   <div class="col-sm-4">
+		<div class="blog_post_inner">
+		  <div class="card-image"><img src="img/Art_Page/raphel.jfif" width="100%" height="300px"></div>
+		  <h5>(1483–1520)</h5>
+		  <h4><a href="#">Raphael</h4>
+		  <p> Raphael is probably most famous for his paintings, including Madonna in the Meadow (1505/06), School of Athens (c. 1508–11), Sistine Madonna (1512/13), The Transfiguration (1516–20).</p>
+		</div>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+	</div>
+<!-- another div stsrts here-->
+	  <div class="container">
+	 <div class="row">
+	 
+	  <div class="blog_post clearfix">
+	   <div class="col-sm-4">
+		<div class="blog_post_inner">
+		  <div class="card-image"><img src="img/Art_Page/vincent.jpg" width="100%" height="300px"></div>
+		  <h5>(1853–1890)</h5>
+		  <h4><a href="#">Vincent van Gogh</a></h4>
+		  <p>He is now famed for the great vitality of his works which are characterised by expressive and emotive use of brilliant colour and energetic application of impastoed paint.Known for: "Starry Night," "Sunflowers," "Irises"</p>
+		</div>
+	   </div>
+	   <div class="col-sm-4">
+		<div class="blog_post_inner">
+		  <div class="card-image"><img src="img/Art_Page/julie.jfif" width="100%" height="300px"></div>
+		  <h5>(1970–)</h5>
+		  <h4><a href="#">Julie Mehretu</a></h4>
+		  <p>Mehretu's paintings are constructed through a labor-intensive additive process in which successive layers of lines and thick streams of paint are separated by coats of transparent acrylic.</p>
+		</div>
+	   </div>
+	   <div class="col-sm-4">
+		<div class="blog_post_inner">
+		  <div class="card-image"><img src="img/Art_Page/karawalker.jfif" width="100%" height="300px"></div>
+		  <h5> (1969–)</h5>
+		  <h4><a href="#">Kara Walker</h4>
+		  <p>Kara Elizabeth Walker is an American contemporary painter, silhouettist, printmaker, installation artist, filmmaker, and professor who explores race, gender, sexuality, violence, and identity in her work. </p>
+		</div>
+	   </div>
+	  </div>
+	  
+	 </div>
+	</div>
+	</div>
+<!-- third div starts here -->
+ </div>
+<div class="container">
+	<div class="row">
+	 <div class="blog_post clearfix">
+	  <div class="col-sm-4">
+	   <div class="blog_post_inner">
+		 <div class="card-image"><img src="img/Art_Page/robertcrumb.jfif" width="100%" height="300px"></div>
+		 <h5>(1943–)</h5>
+		 <h4><a href="#">R. Crumb </a></h4>
+		 <p>Crumb  is an American counterculture comic book artist and social satirist, known for his distinctive artwork and excellent marriage of drawing and narrative and for creating such well-known characters as Fritz the Cat and Mr. Natural.</p>
+	   </div>
+	  </div>
+	  <div class="col-sm-4">
+	   <div class="blog_post_inner">
+		 <div class="card-image"><img src="img/Art_Page/cicily.jfif" width="100%" height="300px"></div>
+		 <h5>(1969–)</h5>
+		 <h4><a href="#">Cecily Brown</a></h4>
+		 <p>Brown now lives and works in New York City, and has had dozens of exhibitions,the Metropolitan Museum of Art held Cecily Brown: Death and the Maid, which was “the first full-breadth museum survey in New York” of Brown's career.</p>
+	   </div>
+	  </div>
+	  <div class="col-sm-4">
+	   <div class="blog_post_inner">
+		 <div class="card-image"><img src="img/Art_Page/david.jfif" width="100%" height="300px"></div>
+		 <h5>(1968–)</h5>
+		 <h4><a href="#">David Shrigley</h4>
+		 <p> Shrigley first came to prominence in the 1990s for his distinct line drawings, surreal and darkly humorous subject matter almost childlike style.David Shrigley's most popular works have performed well , with some going for well over their original prices. </p>
+	   </div>
+	  </div>
+	 </div>
+	</div>
+   </div>
+   </div>
+</div> </div>  </div>
+</div>
+   </section>
+</section>
+<!-- SOMETHINGS ABOUT ART  STARTS HERE-->
+
+<br><br><br><br>
+<!-- footer session starts here -->
+ <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer clearfix">
+            <div class="footer_1 clearfix">
+              <div class="col-sm-3">
+                <div class="footer_1_left">
+                  <h3>ArteNova</h3>
+                  <p>695301 Kazhakkoottam<br>Thiruvananthapuram, Kerala<br>India</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer_3 clearfix">
+                  <p>Our museum is dedicated to preserving and showcasing art and history from around the world. 
+                    &copy; 2024 ArteNova. All rights reserved.</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="footer_1_right pull-right">
+                  <h1>AeN <span>ArteNova</span></h1>
+                </div>
+              </div>
+            </div>
+           
+              <div class="col-sm-5">
+                <div class="footer_2_right pull-right">
+                  <ul class="social-network social-circle">
+                  
+                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+<div id="toTop" class="btn btn-info" style="display: block; background:#e02626; border-color:#e02626;"><span class="fa fa-chevron-up"></span></div>
+
+<script>
+$(document).ready(function(){
+  $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+	$(window).scroll(function () {
+		if ($(this).scrollTop() != 0) {
+			$('#toTop').fadeIn();
+		} else {
+			$('#toTop').fadeOut();
+		}
+	}); 
+$('#toTop').click(function(){
+	$("html, body").animate({ scrollTop: 0 }, 600);
+	return false;
+});
+});
+
+</script>
+
+<script>
+$(document).ready(function(){
+	/*****Fixed Menu******/
+	var secondaryNav = $('.cd-secondary-nav'),
+	   secondaryNavTopPosition = secondaryNav.offset().top;
+	   navbar_height = document.querySelector('.navbar').offsetHeight;
+	   
+		$(window).on('scroll', function(){
+		    if($(window).scrollTop() > secondaryNavTopPosition + navbar_height ) {
+				secondaryNav.addClass('is-fixed');	
+				document.body.style.paddingTop = navbar_height + 'px';
+				
+			} else {
+				secondaryNav.removeClass('is-fixed');
+				document.body.style.paddingTop = '0'
+			}
+		});	
+		
+});
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/jquery.flipster.min.js"></script>
+
+<script>
+	$('.carousel').flipster({
+		style:'carousel',
+		spacing: -0.3,
+
+	});
+</script>
+
+
+
+</body>
+       
+</html>

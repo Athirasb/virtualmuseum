@@ -1,0 +1,8 @@
+INDEX VERSION 1.134+D:\VirtualMuseum\.metadata\.plugins\org.eclipse.jdt.core
+545335241.index
+3803894794.index
+2341721642.index
+220604793.index
+2809639774.index
+1865797976.index
+3758271213.index

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* Add your CSS styles here as before */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color:  #991111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 220px;
+            height: calc(100% - 80px);
+            background-color:  #991111;
+            color: white;
+            overflow-y: auto;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-align: left;
+            padding: 14px 16px;
+            text-decoration: none;
+            border-bottom: 1px solid  #991111;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #f2f6fd;
+            color: #ff0c0c;
+        }
+
+        .dashboard-content {
+            margin-left: 240px;
+            padding: 20px;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .container {
+            width: calc(25% - 40px);
+            margin: 10px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+            color:  #991111;
+            text-decoration: none;
+        }
+
+        .container:hover {
+            background-color: #f2f2f2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            color: #ff0c0c;
+        }
+
+        .container i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #991111;
+        }
+
+        .value {
+            display: block;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color:  #991111;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .value:hover {
+            background-color: #f2f2f2;
+            color: #ff0c0c;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #991111;
+            border-bottom: 1px solid #991111;
+        }
+
+        .profile img {
+            border-radius: 70%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .profile span {
+            color: white;
+            font-size: 14px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            padding: 8px;
+            z-index: 1;
+            width: auto;
+            min-width: 200px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 6px 12px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f2f2f2;
+            color: #ff0c0c;
+        }
+        .profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-logo {
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+    border-radius: 50%; /* Optional: makes the image round */
+    margin-right: 10px; /* Spacing between the logo and the name */
+}
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ADMIN PANEL</h1>
+    </header>
+    <nav>
+        <div class="profile">
+    <!-- Add the logo image here -->
+    <img src="images\logoboy.jpg" alt="User Logo" class="user-logo">
+    <H2><span >ADMIN</span></H2>
+</div>
+
+        <a href="#">Dashboard <i class="fas fa-tachometer-alt"></i></a>
+ <a th:href="@{/events/create}" class="btn btn-create">Event Creation <i class="fas fa-calendar-plus"></i></a>
+ <a th:href="@{/events/display}" class="btn btn-ongoing-events">Ongoing Events <i class="fas fa-calendar-day"></i></a>
+ <a th:href="@{/event_registration_details}" >Registered Events<i class="fas fa-calendar-alt"></i></a>  <!-- Registered Events with Icon -->
+
+
+
+
+   <!-- Example with hardcoded ID for testing -->
+<a th:href="@{/contact_data}" class="btn btn-primary">
+    Contact Details <i class="fas fa-envelope"></i>
+</a>
+
+
+ <a th:href="@{/art-uploads}">Art Uploads <i class="fas fa-upload"></i></a>
+
+        <a  class="logout" th:href="@{/index}">Logout <i class="fas fa-sign-out-alt"></i></a>
+       
+    </nav>
+    <div class="dashboard-content">
+        
+        <a th:href="@{/events/create}" class="container" id="event-creation-link">
+            <i class="fas fa-calendar-plus"></i>
+            <h2>Event Creation</h2>
+            <p>Create and manage events</p>
+        </a>
+        <a th:href="@{/contact_data}" class="container" id="contact-details-link">
+            <i class="fas fa-envelope"></i>
+            <h2>Contact Details</h2>
+            <p>View and manage contact details</p>
+        </a>
+        <a th:href="@{/art-uploads}" class="container" id="art-uploads-link">
+            <i class="fas fa-upload"></i>
+            <h2>Art Uploads</h2>
+            <p>Upload and manage artworks</p>
+        </a>
+       <a th:href="@{/event_registration_details}" class="container" id="event-registrations-link">
+ 
+       
+            <i class="fas fa-clipboard-list"></i>
+            <h2>Event Registrations</h2>
+            <p>Details of persons who registered for events</p>
+        </a>
+    </div>
+</body>
+</html>

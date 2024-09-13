@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Artwork</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4e1c3; /* Sandal beige background */
+            font-family: 'Georgia', serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #c0392b; /* Red color for heading */
+            font-family: 'Merriweather', serif;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            color: #c0392b; /* Red color for labels */
+        }
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #e0a96d; /* Light sandal border */
+        }
+        #file {
+            margin-top: 10px;
+        }
+        button {
+            background-color: #c0392b; /* Red button */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Georgia', serif;
+            color: white;
+        }
+        button:hover {
+            background-color: #a93226; /* Darker red on hover */
+        }
+        .btn-secondary {
+            background-color: #e0a96d; /* Sandal colored back button */
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .btn-secondary:hover {
+            background-color: #d18b5f; /* Darker sandal on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Artwork</h2>
+        <form th:action="@{/edit-artwork/{id}(id=${artwork.id})}" th:object="${artwork}" method="post" enctype="multipart/form-data">
+            <input type="hidden" th:field="*{id}" />
+            
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" th:field="*{name}" class="form-control" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" class="form-control" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" th:field="*{phone}" class="form-control" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="artTitle">Art Title:</label>
+                <input type="text" id="artTitle" th:field="*{artTitle}" class="form-control" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="artDescription">Art Description:</label>
+                <textarea id="artDescription" th:field="*{artDescription}" class="form-control" required></textarea>
+            </div>
+         <div class="form-group">
+    <label for="image">Artwork Image</label>
+    <input type="file" id="image" name="image" class="form-control" />
+    <img th:src="@{'/uploads/' + ${artwork.imageName}}" alt="Artwork Image" style="width:150px; margin-top:10px;" />
+</div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        
+        <a th:href="@{/art-uploads}"  class="btn btn-secondary">Back to Gallery</a>
+    </div>
+</body>
+</html>

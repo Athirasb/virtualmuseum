@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Display</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf6e3; /* Sandal color */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: darkred;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-left: 220px; /* Leave space for the sidebar */
+        }
+
+        main.container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid darkred; /* Red border for the form */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 280px; /* Margin for sidebar */
+            margin-top: 20px;
+        }
+
+        /* Table Styles */
+        .table {
+            background-color: white; /* White table background */
+            border: 2px solid darkred; /* Red table border */
+            width: 100%;
+            text-align: center;
+            justify-content:center;
+        }
+
+        .table th, .table td {
+            background-color: white; /* Consistent white background */
+            border: 2px solid darkred; /* Red border for table cells */
+            padding: 10px;
+        }
+
+        .table th {
+            background-color: darkred; /* Deep red for header */
+            color: white;
+        }
+
+        /* Sidebar Styles */
+        nav {
+            position: fixed;
+            top: 0; /* Sidebar starts at the top */
+            left: 0;
+            width: 220px;
+            height: 100vh; /* Full height of the viewport */
+            background-color: darkred; /* Dark red background */
+            color: white;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+
+        nav a, .logout {
+            display: block;
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            text-decoration: none;
+            border-bottom: 1px solid darkred;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover, .logout:hover {
+            background-color: #f2f6fd; /* Light background on hover */
+            color: darkred; /* Dark red text on hover */
+            text-decoration: none;
+        }
+
+        /* Profile section in the sidebar */
+        .profile {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: darkred;
+            border-bottom: 1px solid #991111;
+        }
+
+        .profile h2 {
+            font-size: 18px;
+            color: white;
+        }
+
+        .go-back-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .go-back-button img {
+            width: 80px;
+            height: 90px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* Button Styles */
+        .btn-warning {
+            background-color: #f0ad4e; /* Orange-yellow for Edit button */
+            border-color: #eea236;
+        }
+
+        .btn-warning:hover {
+            background-color: #ec971f;
+            border-color: #d58512;
+        }
+
+        .btn-danger {
+            background-color: #d9534f; /* Red for Delete button */
+            border-color: #d43f3a;
+        }
+
+        .btn-danger:hover {
+            background-color: #c9302c;
+            border-color: #ac2925;
+        }
+
+        /* Action Buttons Container */
+        .btn {
+            width: 80px; 
+            display: flex;
+            justify-content: center; /* Center align the buttons */
+            gap: 10px; /* Uniform width for buttons */
+            padding:10px;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav>
+        <br><br><br>
+        <a th:href="@{/admin}" class="btn-sidebar">Dashboard <i class="fas fa-tachometer-alt"></i></a>
+        <a th:href="@{/events/create}" class="btn-sidebar">Create Event <i class="fas fa-calendar-plus"></i></a>
+        <a th:href="@{/events/display}" class="btn-sidebar">Ongoing Events <i class="fas fa-calendar-day"></i></a>
+        <a th:href="@{/event_registration_details}">Registered Events <i class="fas fa-calendar-alt"></i></a> 
+        <a th:href="@{/contact_data}" class="btn-sidebar">Contact Details <i class="fas fa-envelope"></i></a>
+        <a th:href="@{/art-uploads}" class="btn-sidebar">Art Uploads <i class="fas fa-upload"></i></a>
+        <a th:href="@{/index}" class="logout">Logout <i class="fas fa-sign-out-alt"></i></a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Events List</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <div th:if="${events != null and !#lists.isEmpty(events)}">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Description</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                        <th>Link</th>
+                        <th>Image</th>
+                        <th class="actions-column">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="event : ${events}">
+                        <td th:text="${event.eventName}">Event Name</td>
+                        <td th:text="${event.eventDescription}">Description</td>
+                        <td th:text="${event.eventTime}">Time</td>
+                        <td th:text="${event.eventDate}">Date</td>
+                        <td th:text="${event.eventLink}">Link</td>
+                        <td>
+                            <img th:src="@{'/uploads/' + ${event.imageName}}" alt="Event Image" style="width:100px;" />
+                        </td>
+                        <td class="actions-column">
+                            <div class="actions-btns">
+                                <a th:href="@{/events/edit(id=${event.id})}" class="btn btn-warning btn-sm">Edit</a>
+                                <form th:action="@{/events/delete}" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" th:value="${event.id}" />
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${events == null or #lists.isEmpty(events)}">
+            <p>No events available.</p>
+        </div>
+    </main>
+</body>
+</html>

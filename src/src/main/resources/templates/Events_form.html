@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Registration</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        /* Custom Styles */
+        body {
+    font-family: 'Aladin', cursive;
+    background-image: url('images/eventbackimg.jpg'); /* Replace with the correct path to your image */
+    background-size: cover; /* Ensures the background image covers the entire page */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background image fixed during scroll */
+    background-position: center; /* Centers the image */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar-nav li a {
+            color: #333;
+        }
+        .navbar-nav li a:hover {
+            color: #555;
+        }
+        .registration-form {
+            margin-top: 50px;
+            background-color: #f7f7f7;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .registration-form h3 {
+            margin-bottom: 30px;
+        }
+        .registration-form .form-control {
+            border-radius: 0;
+            box-shadow: none;
+            border-color: #ddd;
+        }
+        .registration-form .btn-custom {
+            background-color: #333;
+            border-color: #333;
+            color: white;
+        }
+        .registration-form .btn-custom:hover {
+            background-color: #555;
+            border-color: #555;
+        }
+        .btn btn-custom{
+        
+        width:50px;
+        height:50px;
+        }
+    </style>
+</head>
+<body>
+
+<section id="header" class="clearfix cd-secondary-nav">
+    <nav class="navbar navbar-default">
+        <div class="container clearfix">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header clearfix page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand"><i class="fa fa-pencil"></i> Museum <span>Art</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse clearfix" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="tag_menu_1" th:href="@{/index}">HOME</a></li>
+                    <li><a class="tag_menu" th:href="@{/aboutus}">ABOUT US</a></li>
+                    <li><a class="tag_menu" th:href="@{/exhibitions}">EVENTS</a></li>
+                    <li><a class="tag_menu" th:href="@{/gallery}">GALLERY</a></li>
+                    <li><a class="tag_menu" th:href="@{/contact}">CONTACT US</a></li>
+                </ul> 
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</section>
+
+<div class="container">
+    <div class="col-md-6 col-md-offset-3 registration-form">
+       <center><h3 style="color:darkred;">EVENT REGISTRATION FORM</h3></center> 
+        <form method="post" role="form" th:action="@{/events_register}">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Your Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="Enter Your Country" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter Your Address" required></textarea>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="custom">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<br>
+<br>
+ <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer clearfix">
+            <div class="footer_1 clearfix">
+              <div class="col-sm-3">
+                <div class="footer_1_left">
+                  <h3>ArteNova</h3>
+                  <p>695301 Kazhakkoottam<br>Thiruvananthapuram, Kerala<br>India</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer_3 clearfix">
+                  <p>Our museum is dedicated to preserving and showcasing art and history from around the world. 
+                    &copy; 2024 ArteNova. All rights reserved.</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="footer_1_right pull-right">
+                  <h1>AeN <span>ArteNova</span></h1>
+                </div>
+              </div>
+            </div>
+           
+              <div class="col-sm-5">
+                <div class="footer_2_right pull-right">
+                  <ul class="social-network social-circle">
+                  
+                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>
